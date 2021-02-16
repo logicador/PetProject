@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		37DA225811553D5F37781B97 /* Pods_PetProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874C6F25D6B12AB4D7276110 /* Pods_PetProject.framework */; };
+		5754501125D6DFD90096D669 /* ProductIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */; };
+		5754501425D6E0560096D669 /* ProductReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5754501325D6E0560096D669 /* ProductReviewViewController.swift */; };
+		5754501725D6E1850096D669 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5754501625D6E1850096D669 /* SettingViewController.swift */; };
+		5788231C25D2226C005CBCC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788231B25D2226C005CBCC9 /* AppDelegate.swift */; };
+		5788231E25D2226C005CBCC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788231D25D2226C005CBCC9 /* SceneDelegate.swift */; };
+		5788232525D2226C005CBCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5788232425D2226C005CBCC9 /* Assets.xcassets */; };
+		5788234425D226B0005CBCC9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788234325D226B0005CBCC9 /* App.swift */; };
+		5788234825D226BC005CBCC9 /* Static.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788234725D226BC005CBCC9 /* Static.swift */; };
+		5788234B25D226C3005CBCC9 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788234A25D226C3005CBCC9 /* Extension.swift */; };
+		5788234E25D226EF005CBCC9 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788234D25D226EF005CBCC9 /* HttpRequest.swift */; };
+		5788235125D226F6005CBCC9 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788235025D226F6005CBCC9 /* HttpResponse.swift */; };
+		5788235625D22713005CBCC9 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788235525D22713005CBCC9 /* LaunchViewController.swift */; };
+		5788235B25D2287D005CBCC9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788235A25D2287D005CBCC9 /* MainViewController.swift */; };
+		5788237B25D231D3005CBCC9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788237A25D231D3005CBCC9 /* LoginViewController.swift */; };
+		5788237E25D23AEC005CBCC9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788237D25D23AEC005CBCC9 /* User.swift */; };
+		5788238125D2410D005CBCC9 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788238025D2410D005CBCC9 /* LoginRequest.swift */; };
+		5788238725D24BAC005CBCC9 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788238625D24BAC005CBCC9 /* JoinViewController.swift */; };
+		5788238B25D24C90005CBCC9 /* kakao_login_large_wide.png in Resources */ = {isa = PBXBuildFile; fileRef = 5788238A25D24C90005CBCC9 /* kakao_login_large_wide.png */; };
+		5788238F25D2635D005CBCC9 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788238E25D2635D005CBCC9 /* LineView.swift */; };
+		5788239225D26899005CBCC9 /* ConfirmButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788239125D26899005CBCC9 /* ConfirmButton.swift */; };
+		5788239525D269C8005CBCC9 /* AgreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788239425D269C8005CBCC9 /* AgreeView.swift */; };
+		5788239825D27539005CBCC9 /* JoinRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788239725D27539005CBCC9 /* JoinRequest.swift */; };
+		5788239B25D27C6B005CBCC9 /* PetInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788239A25D27C6B005CBCC9 /* PetInfoViewController.swift */; };
+		5788239E25D27E29005CBCC9 /* LogoutRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788239D25D27E29005CBCC9 /* LogoutRequest.swift */; };
+		578823A425D28BFF005CBCC9 /* PetInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823A325D28BFF005CBCC9 /* PetInputView.swift */; };
+		578823A725D29295005CBCC9 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823A625D29295005CBCC9 /* ToggleButton.swift */; };
+		578823AB25D29EB4005CBCC9 /* SearchBreedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823AA25D29EB4005CBCC9 /* SearchBreedViewController.swift */; };
+		578823AF25D29EFE005CBCC9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823AE25D29EFE005CBCC9 /* Breed.swift */; };
+		578823B225D2A149005CBCC9 /* SelectTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823B125D2A149005CBCC9 /* SelectTVCell.swift */; };
+		578823B525D2A5B4005CBCC9 /* GetBreedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823B425D2A5B4005CBCC9 /* GetBreedsRequest.swift */; };
+		578823BC25D2ABB6005CBCC9 /* PetHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823BB25D2ABB6005CBCC9 /* PetHealthViewController.swift */; };
+		578823BF25D2BAA5005CBCC9 /* InoculationCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823BE25D2BAA5005CBCC9 /* InoculationCVCell.swift */; };
+		578823D025D2E650005CBCC9 /* Inoculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823CF25D2E650005CBCC9 /* Inoculation.swift */; };
+		578823D325D2E6BB005CBCC9 /* GetInoculationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823D225D2E6BB005CBCC9 /* GetInoculationsRequest.swift */; };
+		578823D625D2F057005CBCC9 /* SelectBcsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823D525D2F057005CBCC9 /* SelectBcsViewController.swift */; };
+		578823D925D2F15B005CBCC9 /* BcsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823D825D2F15B005CBCC9 /* BcsView.swift */; };
+		578823DC25D2F17B005CBCC9 /* Bcs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578823DB25D2F17B005CBCC9 /* Bcs.swift */; };
+		5788E27925D3745A008F9EA9 /* PetEtcViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E27825D3745A008F9EA9 /* PetEtcViewController.swift */; };
+		5788E28D25D38A12008F9EA9 /* SearchProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E28C25D38A12008F9EA9 /* SearchProductViewController.swift */; };
+		5788E29025D38A3B008F9EA9 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E28F25D38A3B008F9EA9 /* Product.swift */; };
+		5788E29425D38B1F008F9EA9 /* GetProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E29325D38B1F008F9EA9 /* GetProductsRequest.swift */; };
+		5788E29A25D39442008F9EA9 /* SelectDiseaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E29925D39442008F9EA9 /* SelectDiseaseViewController.swift */; };
+		5788E29D25D3954F008F9EA9 /* SelectAllergyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E29C25D3954F008F9EA9 /* SelectAllergyViewController.swift */; };
+		5788E2A025D39B6C008F9EA9 /* BodyPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E29F25D39B6C008F9EA9 /* BodyPart.swift */; };
+		5788E2A325D39CA4008F9EA9 /* GetDiseasesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2A225D39CA4008F9EA9 /* GetDiseasesRequest.swift */; };
+		5788E2A625D39CB2008F9EA9 /* Disease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2A525D39CB2008F9EA9 /* Disease.swift */; };
+		5788E2A925D39F31008F9EA9 /* OpenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2A825D39F31008F9EA9 /* OpenView.swift */; };
+		5788E2AC25D3A573008F9EA9 /* IndexItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2AB25D3A573008F9EA9 /* IndexItem.swift */; };
+		5788E2AF25D3A6B9008F9EA9 /* ToggleCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2AE25D3A6B9008F9EA9 /* ToggleCVCell.swift */; };
+		5788E2B225D3B3EF008F9EA9 /* FoodCategory2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2B125D3B3EF008F9EA9 /* FoodCategory2.swift */; };
+		5788E2B525D3B3FB008F9EA9 /* FoodCategory1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2B425D3B3FB008F9EA9 /* FoodCategory1.swift */; };
+		5788E2B825D3B535008F9EA9 /* GetFoodCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2B725D3B535008F9EA9 /* GetFoodCategoriesRequest.swift */; };
+		578A541725D58DCC002D94F4 /* GetPetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578A541625D58DCC002D94F4 /* GetPetRequest.swift */; };
+		579ABB6725D4F7340094D7EE /* SavePetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6625D4F7340094D7EE /* SavePetRequest.swift */; };
+		579ABB6A25D4F7980094D7EE /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6925D4F7980094D7EE /* Pet.swift */; };
+		579ABB6D25D4FC770094D7EE /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6C25D4FC770094D7EE /* UploadImageRequest.swift */; };
+		579ABB7025D517000094D7EE /* PetFinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6F25D517000094D7EE /* PetFinishViewController.swift */; };
+		579ABB7325D51E260094D7EE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB7225D51E260094D7EE /* HomeViewController.swift */; };
+		579ABB7625D51E340094D7EE /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB7525D51E340094D7EE /* ProductListViewController.swift */; };
+		579ABB7925D51E400094D7EE /* MyPetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB7825D51E400094D7EE /* MyPetViewController.swift */; };
+		579ABB7D25D528CA0094D7EE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB7C25D528CA0094D7EE /* SearchViewController.swift */; };
+		57BCA12225DB793A00993C91 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA12125DB793A00993C91 /* SettingView.swift */; };
+		57BCA12525DB84A300993C91 /* LeaveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA12425DB84A300993C91 /* LeaveRequest.swift */; };
+		57BCA12825DB8D0D00993C91 /* EditNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA12725DB8D0D00993C91 /* EditNickNameViewController.swift */; };
+		57BCA12B25DB8D7300993C91 /* NoticeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA12A25DB8D7300993C91 /* NoticeListViewController.swift */; };
+		57BCA12E25DB8E6500993C91 /* GetNoticesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA12D25DB8E6500993C91 /* GetNoticesRequest.swift */; };
+		57BCA13125DB8EA400993C91 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA13025DB8EA400993C91 /* Notice.swift */; };
+		57BCA13425DB900D00993C91 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA13325DB900D00993C91 /* NoticeView.swift */; };
+		57BCA13725DB925C00993C91 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA13625DB925C00993C91 /* QuestionViewController.swift */; };
+		57BCA13A25DB92FB00993C91 /* LeaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA13925DB92FB00993C91 /* LeaveViewController.swift */; };
+		57BCA13D25DBA3EB00993C91 /* AddQuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA13C25DBA3EB00993C91 /* AddQuestionRequest.swift */; };
+		57BCA14425DBB63F00993C91 /* TermsWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA14325DBB63F00993C91 /* TermsWebViewController.swift */; };
+		57BCA14825DBBC2900993C91 /* EditPetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA14725DBBC2900993C91 /* EditPetRequest.swift */; };
+		57BCA14C25DBD36C00993C91 /* DiseaseGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA14B25DBD36C00993C91 /* DiseaseGraphView.swift */; };
+		57BCA14F25DBE2DE00993C91 /* WeakDiseaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57BCA14E25DBE2DE00993C91 /* WeakDiseaseView.swift */; };
+		57C6063A25D7B4C9000368F5 /* GetPetIngredientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6063925D7B4C9000368F5 /* GetPetIngredientRequest.swift */; };
+		57C6063D25D7B508000368F5 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6063C25D7B508000368F5 /* Food.swift */; };
+		57C6064025D7B50F000368F5 /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6063F25D7B50F000368F5 /* Nutrient.swift */; };
+		57C6064325D7C286000368F5 /* GetProductIngredientRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6064225D7C286000368F5 /* GetProductIngredientRequest.swift */; };
+		57C6064625D7C7F0000368F5 /* ProductIngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6064525D7C7F0000368F5 /* ProductIngredientView.swift */; };
+		57C6064A25D7E36C000368F5 /* GetProductReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6064925D7E36C000368F5 /* GetProductReviewRequest.swift */; };
+		57C6064D25D7FCD9000368F5 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6064C25D7FCD9000368F5 /* Review.swift */; };
+		57C6065525D81C41000368F5 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C6065425D81C41000368F5 /* ReviewView.swift */; };
+		57D00DCD25D65D56008F60FB /* ProductFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D00DCC25D65D56008F60FB /* ProductFilter.swift */; };
+		57D00DD025D669CA008F60FB /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D00DCF25D669CA008F60FB /* ProductView.swift */; };
+		57D00DD525D68080008F60FB /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D00DD425D68080008F60FB /* ProductViewController.swift */; };
+		57E0563325DA19CB00588A45 /* ingredient_normal.svg in Resources */ = {isa = PBXBuildFile; fileRef = 57E0563225DA19CB00588A45 /* ingredient_normal.svg */; };
+		57E0563725DA1B0C00588A45 /* 0214_펫-56.png in Resources */ = {isa = PBXBuildFile; fileRef = 57E0563625DA1B0C00588A45 /* 0214_펫-56.png */; };
+		57E0564225DA351C00588A45 /* ProductAllIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */; };
+		57E0564625DA77FE00588A45 /* ProductWriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */; };
+		57E0564A25DAC1EA00588A45 /* AddReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0564925DAC1EA00588A45 /* AddReviewRequest.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIngredientViewController.swift; sourceTree = "<group>"; };
+		5754501325D6E0560096D669 /* ProductReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewViewController.swift; sourceTree = "<group>"; };
+		5754501625D6E1850096D669 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		5788231825D2226C005CBCC9 /* PetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5788231B25D2226C005CBCC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5788231D25D2226C005CBCC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5788232425D2226C005CBCC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5788232925D2226C005CBCC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5788234325D226B0005CBCC9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		5788234725D226BC005CBCC9 /* Static.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Static.swift; sourceTree = "<group>"; };
+		5788234A25D226C3005CBCC9 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		5788234D25D226EF005CBCC9 /* HttpRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		5788235025D226F6005CBCC9 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		5788235525D22713005CBCC9 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		5788235A25D2287D005CBCC9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5788235D25D229A4005CBCC9 /* PetProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PetProject.entitlements; sourceTree = "<group>"; };
+		5788237A25D231D3005CBCC9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5788237D25D23AEC005CBCC9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5788238025D2410D005CBCC9 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		5788238625D24BAC005CBCC9 /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		5788238A25D24C90005CBCC9 /* kakao_login_large_wide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kakao_login_large_wide.png; sourceTree = "<group>"; };
+		5788238E25D2635D005CBCC9 /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		5788239125D26899005CBCC9 /* ConfirmButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmButton.swift; sourceTree = "<group>"; };
+		5788239425D269C8005CBCC9 /* AgreeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreeView.swift; sourceTree = "<group>"; };
+		5788239725D27539005CBCC9 /* JoinRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinRequest.swift; sourceTree = "<group>"; };
+		5788239A25D27C6B005CBCC9 /* PetInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInfoViewController.swift; sourceTree = "<group>"; };
+		5788239D25D27E29005CBCC9 /* LogoutRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutRequest.swift; sourceTree = "<group>"; };
+		578823A325D28BFF005CBCC9 /* PetInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetInputView.swift; sourceTree = "<group>"; };
+		578823A625D29295005CBCC9 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
+		578823AA25D29EB4005CBCC9 /* SearchBreedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBreedViewController.swift; sourceTree = "<group>"; };
+		578823AE25D29EFE005CBCC9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		578823B125D2A149005CBCC9 /* SelectTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTVCell.swift; sourceTree = "<group>"; };
+		578823B425D2A5B4005CBCC9 /* GetBreedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBreedsRequest.swift; sourceTree = "<group>"; };
+		578823BB25D2ABB6005CBCC9 /* PetHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetHealthViewController.swift; sourceTree = "<group>"; };
+		578823BE25D2BAA5005CBCC9 /* InoculationCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InoculationCVCell.swift; sourceTree = "<group>"; };
+		578823CF25D2E650005CBCC9 /* Inoculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inoculation.swift; sourceTree = "<group>"; };
+		578823D225D2E6BB005CBCC9 /* GetInoculationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInoculationsRequest.swift; sourceTree = "<group>"; };
+		578823D525D2F057005CBCC9 /* SelectBcsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBcsViewController.swift; sourceTree = "<group>"; };
+		578823D825D2F15B005CBCC9 /* BcsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BcsView.swift; sourceTree = "<group>"; };
+		578823DB25D2F17B005CBCC9 /* Bcs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bcs.swift; sourceTree = "<group>"; };
+		5788E27825D3745A008F9EA9 /* PetEtcViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetEtcViewController.swift; sourceTree = "<group>"; };
+		5788E28C25D38A12008F9EA9 /* SearchProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProductViewController.swift; sourceTree = "<group>"; };
+		5788E28F25D38A3B008F9EA9 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		5788E29325D38B1F008F9EA9 /* GetProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductsRequest.swift; sourceTree = "<group>"; };
+		5788E29925D39442008F9EA9 /* SelectDiseaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDiseaseViewController.swift; sourceTree = "<group>"; };
+		5788E29C25D3954F008F9EA9 /* SelectAllergyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAllergyViewController.swift; sourceTree = "<group>"; };
+		5788E29F25D39B6C008F9EA9 /* BodyPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyPart.swift; sourceTree = "<group>"; };
+		5788E2A225D39CA4008F9EA9 /* GetDiseasesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDiseasesRequest.swift; sourceTree = "<group>"; };
+		5788E2A525D39CB2008F9EA9 /* Disease.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disease.swift; sourceTree = "<group>"; };
+		5788E2A825D39F31008F9EA9 /* OpenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenView.swift; sourceTree = "<group>"; };
+		5788E2AB25D3A573008F9EA9 /* IndexItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexItem.swift; sourceTree = "<group>"; };
+		5788E2AE25D3A6B9008F9EA9 /* ToggleCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCVCell.swift; sourceTree = "<group>"; };
+		5788E2B125D3B3EF008F9EA9 /* FoodCategory2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory2.swift; sourceTree = "<group>"; };
+		5788E2B425D3B3FB008F9EA9 /* FoodCategory1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory1.swift; sourceTree = "<group>"; };
+		5788E2B725D3B535008F9EA9 /* GetFoodCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodCategoriesRequest.swift; sourceTree = "<group>"; };
+		578A541625D58DCC002D94F4 /* GetPetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetRequest.swift; sourceTree = "<group>"; };
+		579ABB6625D4F7340094D7EE /* SavePetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePetRequest.swift; sourceTree = "<group>"; };
+		579ABB6925D4F7980094D7EE /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		579ABB6C25D4FC770094D7EE /* UploadImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
+		579ABB6F25D517000094D7EE /* PetFinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetFinishViewController.swift; sourceTree = "<group>"; };
+		579ABB7225D51E260094D7EE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		579ABB7525D51E340094D7EE /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		579ABB7825D51E400094D7EE /* MyPetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetViewController.swift; sourceTree = "<group>"; };
+		579ABB7C25D528CA0094D7EE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		57BCA12125DB793A00993C91 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		57BCA12425DB84A300993C91 /* LeaveRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveRequest.swift; sourceTree = "<group>"; };
+		57BCA12725DB8D0D00993C91 /* EditNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNickNameViewController.swift; sourceTree = "<group>"; };
+		57BCA12A25DB8D7300993C91 /* NoticeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeListViewController.swift; sourceTree = "<group>"; };
+		57BCA12D25DB8E6500993C91 /* GetNoticesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNoticesRequest.swift; sourceTree = "<group>"; };
+		57BCA13025DB8EA400993C91 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		57BCA13325DB900D00993C91 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		57BCA13625DB925C00993C91 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		57BCA13925DB92FB00993C91 /* LeaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveViewController.swift; sourceTree = "<group>"; };
+		57BCA13C25DBA3EB00993C91 /* AddQuestionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionRequest.swift; sourceTree = "<group>"; };
+		57BCA14325DBB63F00993C91 /* TermsWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsWebViewController.swift; sourceTree = "<group>"; };
+		57BCA14725DBBC2900993C91 /* EditPetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPetRequest.swift; sourceTree = "<group>"; };
+		57BCA14B25DBD36C00993C91 /* DiseaseGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseGraphView.swift; sourceTree = "<group>"; };
+		57BCA14E25DBE2DE00993C91 /* WeakDiseaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakDiseaseView.swift; sourceTree = "<group>"; };
+		57C6063925D7B4C9000368F5 /* GetPetIngredientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetIngredientRequest.swift; sourceTree = "<group>"; };
+		57C6063C25D7B508000368F5 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		57C6063F25D7B50F000368F5 /* Nutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
+		57C6064225D7C286000368F5 /* GetProductIngredientRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductIngredientRequest.swift; sourceTree = "<group>"; };
+		57C6064525D7C7F0000368F5 /* ProductIngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIngredientView.swift; sourceTree = "<group>"; };
+		57C6064925D7E36C000368F5 /* GetProductReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductReviewRequest.swift; sourceTree = "<group>"; };
+		57C6064C25D7FCD9000368F5 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		57C6065425D81C41000368F5 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		57D00DCC25D65D56008F60FB /* ProductFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductFilter.swift; sourceTree = "<group>"; };
+		57D00DCF25D669CA008F60FB /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
+		57D00DD425D68080008F60FB /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		57E0563225DA19CB00588A45 /* ingredient_normal.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ingredient_normal.svg; sourceTree = "<group>"; };
+		57E0563625DA1B0C00588A45 /* 0214_펫-56.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0214_펫-56.png"; sourceTree = "<group>"; };
+		57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAllIngredientViewController.swift; sourceTree = "<group>"; };
+		57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWriteReviewViewController.swift; sourceTree = "<group>"; };
+		57E0564925DAC1EA00588A45 /* AddReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewRequest.swift; sourceTree = "<group>"; };
+		5EC84FD3CFD73140017D6E5E /* Pods-PetProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetProject.release.xcconfig"; path = "Target Support Files/Pods-PetProject/Pods-PetProject.release.xcconfig"; sourceTree = "<group>"; };
+		7D11DD7E17ABF56A99CC8585 /* Pods-PetProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetProject.debug.xcconfig"; path = "Target Support Files/Pods-PetProject/Pods-PetProject.debug.xcconfig"; sourceTree = "<group>"; };
+		874C6F25D6B12AB4D7276110 /* Pods_PetProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5788231525D2226C005CBCC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37DA225811553D5F37781B97 /* Pods_PetProject.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5788230F25D2226B005CBCC9 = {
+			isa = PBXGroup;
+			children = (
+				5788231A25D2226C005CBCC9 /* PetProject */,
+				5788231925D2226C005CBCC9 /* Products */,
+				77622B4EF4AC16F02610F864 /* Pods */,
+				C08FCC26FC14D38915C48773 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5788231925D2226C005CBCC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5788231825D2226C005CBCC9 /* PetProject.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5788231A25D2226C005CBCC9 /* PetProject */ = {
+			isa = PBXGroup;
+			children = (
+				5788235D25D229A4005CBCC9 /* PetProject.entitlements */,
+				5788233925D225FB005CBCC9 /* Image */,
+				5788233A25D225FF005CBCC9 /* Base */,
+				5788233B25D22605005CBCC9 /* HttpConnection */,
+				5788233C25D2260B005CBCC9 /* Model */,
+				5788233D25D22610005CBCC9 /* Controller */,
+				5788233E25D22615005CBCC9 /* View */,
+				5788233F25D2261E005CBCC9 /* Cell */,
+				5788231B25D2226C005CBCC9 /* AppDelegate.swift */,
+				5788231D25D2226C005CBCC9 /* SceneDelegate.swift */,
+				5788232425D2226C005CBCC9 /* Assets.xcassets */,
+				5788232925D2226C005CBCC9 /* Info.plist */,
+			);
+			path = PetProject;
+			sourceTree = "<group>";
+		};
+		5788233925D225FB005CBCC9 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				5788238A25D24C90005CBCC9 /* kakao_login_large_wide.png */,
+				57E0563225DA19CB00588A45 /* ingredient_normal.svg */,
+				57E0563625DA1B0C00588A45 /* 0214_펫-56.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		5788233A25D225FF005CBCC9 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5788234325D226B0005CBCC9 /* App.swift */,
+				5788234725D226BC005CBCC9 /* Static.swift */,
+				5788234A25D226C3005CBCC9 /* Extension.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5788233B25D22605005CBCC9 /* HttpConnection */ = {
+			isa = PBXGroup;
+			children = (
+				5788235325D226FA005CBCC9 /* Get */,
+				5788235425D22700005CBCC9 /* Post */,
+				5788234D25D226EF005CBCC9 /* HttpRequest.swift */,
+				5788235025D226F6005CBCC9 /* HttpResponse.swift */,
+			);
+			path = HttpConnection;
+			sourceTree = "<group>";
+		};
+		5788233C25D2260B005CBCC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5788237D25D23AEC005CBCC9 /* User.swift */,
+				578823AE25D29EFE005CBCC9 /* Breed.swift */,
+				578823CF25D2E650005CBCC9 /* Inoculation.swift */,
+				578823DB25D2F17B005CBCC9 /* Bcs.swift */,
+				5788E28F25D38A3B008F9EA9 /* Product.swift */,
+				5788E29F25D39B6C008F9EA9 /* BodyPart.swift */,
+				5788E2A525D39CB2008F9EA9 /* Disease.swift */,
+				5788E2AB25D3A573008F9EA9 /* IndexItem.swift */,
+				5788E2B425D3B3FB008F9EA9 /* FoodCategory1.swift */,
+				5788E2B125D3B3EF008F9EA9 /* FoodCategory2.swift */,
+				579ABB6925D4F7980094D7EE /* Pet.swift */,
+				57D00DCC25D65D56008F60FB /* ProductFilter.swift */,
+				57C6063C25D7B508000368F5 /* Food.swift */,
+				57C6063F25D7B50F000368F5 /* Nutrient.swift */,
+				57C6064C25D7FCD9000368F5 /* Review.swift */,
+				57BCA13025DB8EA400993C91 /* Notice.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5788233D25D22610005CBCC9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				578823A925D29EAA005CBCC9 /* Search */,
+				5788234025D2263B005CBCC9 /* Main */,
+				5788234125D2264D005CBCC9 /* Login */,
+				5788234225D22653005CBCC9 /* Pet */,
+				578823D525D2F057005CBCC9 /* SelectBcsViewController.swift */,
+				5788E29925D39442008F9EA9 /* SelectDiseaseViewController.swift */,
+				5788E29C25D3954F008F9EA9 /* SelectAllergyViewController.swift */,
+				57D00DD425D68080008F60FB /* ProductViewController.swift */,
+				5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */,
+				57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */,
+				5754501325D6E0560096D669 /* ProductReviewViewController.swift */,
+				57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */,
+				5754501625D6E1850096D669 /* SettingViewController.swift */,
+				57BCA12725DB8D0D00993C91 /* EditNickNameViewController.swift */,
+				57BCA12A25DB8D7300993C91 /* NoticeListViewController.swift */,
+				57BCA13625DB925C00993C91 /* QuestionViewController.swift */,
+				57BCA13925DB92FB00993C91 /* LeaveViewController.swift */,
+				57BCA14325DBB63F00993C91 /* TermsWebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5788233E25D22615005CBCC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5788238E25D2635D005CBCC9 /* LineView.swift */,
+				5788239125D26899005CBCC9 /* ConfirmButton.swift */,
+				5788239425D269C8005CBCC9 /* AgreeView.swift */,
+				578823A325D28BFF005CBCC9 /* PetInputView.swift */,
+				578823A625D29295005CBCC9 /* ToggleButton.swift */,
+				578823D825D2F15B005CBCC9 /* BcsView.swift */,
+				5788E2A825D39F31008F9EA9 /* OpenView.swift */,
+				57D00DCF25D669CA008F60FB /* ProductView.swift */,
+				57C6064525D7C7F0000368F5 /* ProductIngredientView.swift */,
+				57C6065425D81C41000368F5 /* ReviewView.swift */,
+				57BCA12125DB793A00993C91 /* SettingView.swift */,
+				57BCA13325DB900D00993C91 /* NoticeView.swift */,
+				57BCA14B25DBD36C00993C91 /* DiseaseGraphView.swift */,
+				57BCA14E25DBE2DE00993C91 /* WeakDiseaseView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5788233F25D2261E005CBCC9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				578823B125D2A149005CBCC9 /* SelectTVCell.swift */,
+				578823BE25D2BAA5005CBCC9 /* InoculationCVCell.swift */,
+				5788E2AE25D3A6B9008F9EA9 /* ToggleCVCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		5788234025D2263B005CBCC9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5788235525D22713005CBCC9 /* LaunchViewController.swift */,
+				5788235A25D2287D005CBCC9 /* MainViewController.swift */,
+				579ABB7225D51E260094D7EE /* HomeViewController.swift */,
+				579ABB7525D51E340094D7EE /* ProductListViewController.swift */,
+				579ABB7825D51E400094D7EE /* MyPetViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5788234125D2264D005CBCC9 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5788237A25D231D3005CBCC9 /* LoginViewController.swift */,
+				5788238625D24BAC005CBCC9 /* JoinViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5788234225D22653005CBCC9 /* Pet */ = {
+			isa = PBXGroup;
+			children = (
+				5788239A25D27C6B005CBCC9 /* PetInfoViewController.swift */,
+				578823BB25D2ABB6005CBCC9 /* PetHealthViewController.swift */,
+				5788E27825D3745A008F9EA9 /* PetEtcViewController.swift */,
+				579ABB6F25D517000094D7EE /* PetFinishViewController.swift */,
+			);
+			path = Pet;
+			sourceTree = "<group>";
+		};
+		5788235325D226FA005CBCC9 /* Get */ = {
+			isa = PBXGroup;
+			children = (
+				578823B425D2A5B4005CBCC9 /* GetBreedsRequest.swift */,
+				578823D225D2E6BB005CBCC9 /* GetInoculationsRequest.swift */,
+				5788E29325D38B1F008F9EA9 /* GetProductsRequest.swift */,
+				5788E2A225D39CA4008F9EA9 /* GetDiseasesRequest.swift */,
+				5788E2B725D3B535008F9EA9 /* GetFoodCategoriesRequest.swift */,
+				578A541625D58DCC002D94F4 /* GetPetRequest.swift */,
+				57C6063925D7B4C9000368F5 /* GetPetIngredientRequest.swift */,
+				57C6064225D7C286000368F5 /* GetProductIngredientRequest.swift */,
+				57C6064925D7E36C000368F5 /* GetProductReviewRequest.swift */,
+				57BCA12D25DB8E6500993C91 /* GetNoticesRequest.swift */,
+			);
+			path = Get;
+			sourceTree = "<group>";
+		};
+		5788235425D22700005CBCC9 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				5788238025D2410D005CBCC9 /* LoginRequest.swift */,
+				5788239D25D27E29005CBCC9 /* LogoutRequest.swift */,
+				5788239725D27539005CBCC9 /* JoinRequest.swift */,
+				579ABB6625D4F7340094D7EE /* SavePetRequest.swift */,
+				579ABB6C25D4FC770094D7EE /* UploadImageRequest.swift */,
+				57E0564925DAC1EA00588A45 /* AddReviewRequest.swift */,
+				57BCA12425DB84A300993C91 /* LeaveRequest.swift */,
+				57BCA13C25DBA3EB00993C91 /* AddQuestionRequest.swift */,
+				57BCA14725DBBC2900993C91 /* EditPetRequest.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		578823A925D29EAA005CBCC9 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				578823AA25D29EB4005CBCC9 /* SearchBreedViewController.swift */,
+				5788E28C25D38A12008F9EA9 /* SearchProductViewController.swift */,
+				579ABB7C25D528CA0094D7EE /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		77622B4EF4AC16F02610F864 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7D11DD7E17ABF56A99CC8585 /* Pods-PetProject.debug.xcconfig */,
+				5EC84FD3CFD73140017D6E5E /* Pods-PetProject.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C08FCC26FC14D38915C48773 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				874C6F25D6B12AB4D7276110 /* Pods_PetProject.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5788231725D2226C005CBCC9 /* PetProject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5788232C25D2226C005CBCC9 /* Build configuration list for PBXNativeTarget "PetProject" */;
+			buildPhases = (
+				7D57B36733DFA0C4EFD74B91 /* [CP] Check Pods Manifest.lock */,
+				5788231425D2226C005CBCC9 /* Sources */,
+				5788231525D2226C005CBCC9 /* Frameworks */,
+				5788231625D2226C005CBCC9 /* Resources */,
+				50D3B42ADC2C07DD40543204 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PetProject;
+			productName = PetProject;
+			productReference = 5788231825D2226C005CBCC9 /* PetProject.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5788231025D2226B005CBCC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					5788231725D2226C005CBCC9 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 5788231325D2226B005CBCC9 /* Build configuration list for PBXProject "PetProject" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5788230F25D2226B005CBCC9;
+			productRefGroup = 5788231925D2226C005CBCC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5788231725D2226C005CBCC9 /* PetProject */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5788231625D2226C005CBCC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57E0563325DA19CB00588A45 /* ingredient_normal.svg in Resources */,
+				57E0563725DA1B0C00588A45 /* 0214_펫-56.png in Resources */,
+				5788238B25D24C90005CBCC9 /* kakao_login_large_wide.png in Resources */,
+				5788232525D2226C005CBCC9 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50D3B42ADC2C07DD40543204 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetProject/Pods-PetProject-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PetProject/Pods-PetProject-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PetProject/Pods-PetProject-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7D57B36733DFA0C4EFD74B91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PetProject-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5788231425D2226C005CBCC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				579ABB6725D4F7340094D7EE /* SavePetRequest.swift in Sources */,
+				57C6064025D7B50F000368F5 /* Nutrient.swift in Sources */,
+				5788E2AF25D3A6B9008F9EA9 /* ToggleCVCell.swift in Sources */,
+				5788234425D226B0005CBCC9 /* App.swift in Sources */,
+				5788239E25D27E29005CBCC9 /* LogoutRequest.swift in Sources */,
+				5788231C25D2226C005CBCC9 /* AppDelegate.swift in Sources */,
+				5788E27925D3745A008F9EA9 /* PetEtcViewController.swift in Sources */,
+				57BCA14F25DBE2DE00993C91 /* WeakDiseaseView.swift in Sources */,
+				5788234B25D226C3005CBCC9 /* Extension.swift in Sources */,
+				57BCA13425DB900D00993C91 /* NoticeView.swift in Sources */,
+				579ABB6A25D4F7980094D7EE /* Pet.swift in Sources */,
+				5788238125D2410D005CBCC9 /* LoginRequest.swift in Sources */,
+				57C6063A25D7B4C9000368F5 /* GetPetIngredientRequest.swift in Sources */,
+				57BCA13D25DBA3EB00993C91 /* AddQuestionRequest.swift in Sources */,
+				578823D925D2F15B005CBCC9 /* BcsView.swift in Sources */,
+				57C6064A25D7E36C000368F5 /* GetProductReviewRequest.swift in Sources */,
+				5788E28D25D38A12008F9EA9 /* SearchProductViewController.swift in Sources */,
+				57E0564625DA77FE00588A45 /* ProductWriteReviewViewController.swift in Sources */,
+				57C6064625D7C7F0000368F5 /* ProductIngredientView.swift in Sources */,
+				57BCA12825DB8D0D00993C91 /* EditNickNameViewController.swift in Sources */,
+				57BCA14825DBBC2900993C91 /* EditPetRequest.swift in Sources */,
+				579ABB7325D51E260094D7EE /* HomeViewController.swift in Sources */,
+				5788235125D226F6005CBCC9 /* HttpResponse.swift in Sources */,
+				5788238725D24BAC005CBCC9 /* JoinViewController.swift in Sources */,
+				578823B225D2A149005CBCC9 /* SelectTVCell.swift in Sources */,
+				578823BC25D2ABB6005CBCC9 /* PetHealthViewController.swift in Sources */,
+				57C6065525D81C41000368F5 /* ReviewView.swift in Sources */,
+				578823D025D2E650005CBCC9 /* Inoculation.swift in Sources */,
+				578823A725D29295005CBCC9 /* ToggleButton.swift in Sources */,
+				57BCA12B25DB8D7300993C91 /* NoticeListViewController.swift in Sources */,
+				57BCA13125DB8EA400993C91 /* Notice.swift in Sources */,
+				5788239825D27539005CBCC9 /* JoinRequest.swift in Sources */,
+				57E0564A25DAC1EA00588A45 /* AddReviewRequest.swift in Sources */,
+				57BCA14425DBB63F00993C91 /* TermsWebViewController.swift in Sources */,
+				578823B525D2A5B4005CBCC9 /* GetBreedsRequest.swift in Sources */,
+				5788231E25D2226C005CBCC9 /* SceneDelegate.swift in Sources */,
+				5788234E25D226EF005CBCC9 /* HttpRequest.swift in Sources */,
+				5788E29025D38A3B008F9EA9 /* Product.swift in Sources */,
+				5788239225D26899005CBCC9 /* ConfirmButton.swift in Sources */,
+				578A541725D58DCC002D94F4 /* GetPetRequest.swift in Sources */,
+				5788239B25D27C6B005CBCC9 /* PetInfoViewController.swift in Sources */,
+				579ABB7025D517000094D7EE /* PetFinishViewController.swift in Sources */,
+				5788239525D269C8005CBCC9 /* AgreeView.swift in Sources */,
+				5788E2B525D3B3FB008F9EA9 /* FoodCategory1.swift in Sources */,
+				57D00DD525D68080008F60FB /* ProductViewController.swift in Sources */,
+				578823BF25D2BAA5005CBCC9 /* InoculationCVCell.swift in Sources */,
+				57D00DD025D669CA008F60FB /* ProductView.swift in Sources */,
+				5788235B25D2287D005CBCC9 /* MainViewController.swift in Sources */,
+				578823AB25D29EB4005CBCC9 /* SearchBreedViewController.swift in Sources */,
+				57BCA12225DB793A00993C91 /* SettingView.swift in Sources */,
+				57BCA12E25DB8E6500993C91 /* GetNoticesRequest.swift in Sources */,
+				5788E2A025D39B6C008F9EA9 /* BodyPart.swift in Sources */,
+				5788235625D22713005CBCC9 /* LaunchViewController.swift in Sources */,
+				5788237B25D231D3005CBCC9 /* LoginViewController.swift in Sources */,
+				57BCA12525DB84A300993C91 /* LeaveRequest.swift in Sources */,
+				5788E2A925D39F31008F9EA9 /* OpenView.swift in Sources */,
+				5788E2AC25D3A573008F9EA9 /* IndexItem.swift in Sources */,
+				57BCA14C25DBD36C00993C91 /* DiseaseGraphView.swift in Sources */,
+				5788234825D226BC005CBCC9 /* Static.swift in Sources */,
+				5788E2A325D39CA4008F9EA9 /* GetDiseasesRequest.swift in Sources */,
+				579ABB7925D51E400094D7EE /* MyPetViewController.swift in Sources */,
+				5788E29A25D39442008F9EA9 /* SelectDiseaseViewController.swift in Sources */,
+				5788E2A625D39CB2008F9EA9 /* Disease.swift in Sources */,
+				57BCA13A25DB92FB00993C91 /* LeaveViewController.swift in Sources */,
+				57C6063D25D7B508000368F5 /* Food.swift in Sources */,
+				57C6064325D7C286000368F5 /* GetProductIngredientRequest.swift in Sources */,
+				5788E2B225D3B3EF008F9EA9 /* FoodCategory2.swift in Sources */,
+				57D00DCD25D65D56008F60FB /* ProductFilter.swift in Sources */,
+				5788E2B825D3B535008F9EA9 /* GetFoodCategoriesRequest.swift in Sources */,
+				5788E29D25D3954F008F9EA9 /* SelectAllergyViewController.swift in Sources */,
+				578823A425D28BFF005CBCC9 /* PetInputView.swift in Sources */,
+				579ABB7D25D528CA0094D7EE /* SearchViewController.swift in Sources */,
+				5788E29425D38B1F008F9EA9 /* GetProductsRequest.swift in Sources */,
+				579ABB7625D51E340094D7EE /* ProductListViewController.swift in Sources */,
+				578823D325D2E6BB005CBCC9 /* GetInoculationsRequest.swift in Sources */,
+				5754501425D6E0560096D669 /* ProductReviewViewController.swift in Sources */,
+				5788238F25D2635D005CBCC9 /* LineView.swift in Sources */,
+				57BCA13725DB925C00993C91 /* QuestionViewController.swift in Sources */,
+				578823DC25D2F17B005CBCC9 /* Bcs.swift in Sources */,
+				57E0564225DA351C00588A45 /* ProductAllIngredientViewController.swift in Sources */,
+				579ABB6D25D4FC770094D7EE /* UploadImageRequest.swift in Sources */,
+				5754501725D6E1850096D669 /* SettingViewController.swift in Sources */,
+				578823D625D2F057005CBCC9 /* SelectBcsViewController.swift in Sources */,
+				578823AF25D29EFE005CBCC9 /* Breed.swift in Sources */,
+				57C6064D25D7FCD9000368F5 /* Review.swift in Sources */,
+				5788237E25D23AEC005CBCC9 /* User.swift in Sources */,
+				5754501125D6DFD90096D669 /* ProductIngredientViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5788232A25D2226C005CBCC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5788232B25D2226C005CBCC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5788232D25D2226C005CBCC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D11DD7E17ABF56A99CC8585 /* Pods-PetProject.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PetProject/PetProject.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 539VY639PR;
+				INFOPLIST_FILE = PetProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stellation.PetProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = PetProject;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5788232E25D2226C005CBCC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EC84FD3CFD73140017D6E5E /* Pods-PetProject.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = PetProject/PetProject.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = 539VY639PR;
+				INFOPLIST_FILE = PetProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stellation.PetProject;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = PetProject;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5788231325D2226B005CBCC9 /* Build configuration list for PBXProject "PetProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5788232A25D2226C005CBCC9 /* Debug */,
+				5788232B25D2226C005CBCC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5788232C25D2226C005CBCC9 /* Build configuration list for PBXNativeTarget "PetProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5788232D25D2226C005CBCC9 /* Debug */,
+				5788232E25D2226C005CBCC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5788231025D2226B005CBCC9 /* Project object */;
+}

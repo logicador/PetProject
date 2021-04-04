@@ -26,6 +26,9 @@ class PetEtcViewController: UIViewController {
     let selectAllergyVC = SelectAllergyViewController()
     let uploadImageRequest = UploadImageRequest()
     let savePetRequest = SavePetRequest()
+    let getPetProductsRequest = GetPetProductsRequest()
+    let getPetDiseasesRequest = GetPetDiseasesRequest()
+    let getPetFoodCategories2Request = GetPetFoodCategories2Request()
     
     var peId: Int?
     var thumbnail = ""
@@ -47,10 +50,31 @@ class PetEtcViewController: UIViewController {
     var diseaseIdList: [Int] = []
     var allergyIdList: [Int] = []
     
+    var isEditMode: Bool = false {
+        didSet {
+            if isEditMode {
+                let pet = app.getPet()
+                
+                if pet.serial == "Y" {
+                    serialNoPetInputView.textField.text = pet.serialNo
+                } else if pet.serial == "N" {
+                    serialNButton.setSelect(isSelected: true)
+                } else {
+                    serialDButton.setSelect(isSelected: true)
+                }
+                
+                peId = pet.id
+                
+                nextButton.setActive(isActive: true)
+            }
+        }
+    }
+    
     
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -194,6 +218,15 @@ class PetEtcViewController: UIViewController {
         selectAllergyVC.delegate = self
         uploadImageRequest.delegate = self
         savePetRequest.delegate = self
+        getPetProductsRequest.delegate = self
+        getPetDiseasesRequest.delegate = self
+        getPetFoodCategories2Request.delegate = self
+        
+        if isEditMode {
+            getPetProductsRequest.fetch(vc: self, paramDict: ["peId": String(app.getPetId())])
+            getPetDiseasesRequest.fetch(vc: self, paramDict: ["peId": String(app.getPetId())])
+            getPetFoodCategories2Request.fetch(vc: self, paramDict: ["peId": String(app.getPetId())])
+        }
         
         // MARK: For DEV_DEBUG
 //        serialNoPetInputView.textField.text = "123456789"
@@ -314,7 +347,7 @@ class PetEtcViewController: UIViewController {
     }
     
     // MARK: Function - AddPet
-    func addPet(thumb: UIImage?, name: String, birth: String, breed: Breed, gender: String, weight: Double?, bcs: Bcs, neuter: String, inoculation: String, inoculationList: [Inoculation], inoculationKindEtcText: String) {
+    func addPet(thumb: UIImage?, name: String, birth: String, breed: Breed, gender: String, weight: Double?, bcs: Bcs, neuter: String, inoculation: String, inoculationList: [Inoculation], inoculationKindEtcText: String, isThumbnailChanged: Bool) {
         let serial = (serialNButton.backgroundColor == .mainColor) ? "N" : ((serialDButton.backgroundColor == .mainColor) ? "D" : "Y")
         guard let serialNo = serialNoPetInputView.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         
@@ -340,10 +373,21 @@ class PetEtcViewController: UIViewController {
         for disease in selectedDiseaseList { diseaseIdList.append(disease.id) }
         for allergy in selectedAllergyList { allergyIdList.append(allergy.id) }
         
-        if thumb == nil {
-            savePetRequest.fetch(vc: self, paramDict: getPetParamDict())
+        if isEditMode {
+            if isThumbnailChanged {
+                uploadImageRequest.fetch(vc: self, image: thumb)
+            } else {
+                let pet = app.getPet()
+                thumbnail = pet.thumbnail ?? ""
+                savePetRequest.fetch(vc: self, paramDict: getPetParamDict())
+            }
+            
         } else {
-            uploadImageRequest.fetch(vc: self, image: thumb)
+            if thumb == nil {
+                savePetRequest.fetch(vc: self, paramDict: getPetParamDict())
+            } else {
+                uploadImageRequest.fetch(vc: self, image: thumb)
+            }
         }
     }
     
@@ -357,7 +401,7 @@ class PetEtcViewController: UIViewController {
         if let bId = self.bId { paramDict["bId"] = String(bId) }
         paramDict["gender"] = gender
         if let weight = self.weight { paramDict["weight"] = String(weight) }
-        if let bcs = self.bcs { paramDict["bcs"] = String(bcs) }
+        if let bcs = self.bcs { paramDict["bcsStep"] = String(bcs) }
         paramDict["neuter"] = neuter
         paramDict["inoculation"] = inoculation
         paramDict["inoculationText"] = inoculationText
@@ -515,11 +559,91 @@ extension PetEtcViewController: SavePetRequestProtocol {
         
         if status == "OK" {
             guard let pet = pet else { return }
+            app.setPet(pet: pet)
             self.peId = pet.id
             
-            let petFinishVC = PetFinishViewController()
-            petFinishVC.modalPresentationStyle = .fullScreen
-            present(petFinishVC, animated: true, completion: nil)
+            if isEditMode {
+                changeRootViewController(rootViewController: UINavigationController(rootViewController: MainViewController()))
+                
+            } else {
+                let petFinishVC = PetFinishViewController()
+                petFinishVC.modalPresentationStyle = .fullScreen
+                present(petFinishVC, animated: true, completion: nil)
+            }
+            
+        }
+    }
+}
+
+// MARK: HTTP - GetPetProducts
+extension PetEtcViewController: GetPetProductsRequestProtocol {
+    func response(productList: [Product]?, getPetProducts status: String) {
+        print("[HTTP RES]", getPetProductsRequest.apiUrl, status)
+        
+        if status == "OK" {
+            guard let productList = productList else { return }
+            
+            for product in productList {
+                if product.pcId == 1 {
+                    selectedFeed = product
+                    feedPetInputView.textField.text = product.name
+                } else if product.pcId == 2 {
+                    selectedSnack = product
+                    snackPetInputView.textField.text = product.name
+                }
+            }
+        }
+    }
+}
+
+// MARK: HTTP - GetPetDiseases
+extension PetEtcViewController: GetPetDiseasesRequestProtocol {
+    func response(diseaseList: [Disease]?, getPetDiseases status: String) {
+        print("[HTTP RES]", getPetDiseasesRequest.apiUrl, status)
+        
+        if status == "OK" {
+            guard let diseaseList = diseaseList else { return }
+            selectedDiseaseList = diseaseList
+            selectDiseaseVC.selectedDiseaseList = diseaseList
+            selectDiseaseVC.isEditMode = true
+            
+            if diseaseList.count > 0 {
+                diseasePetInputView.textField.text = diseaseList[0].name
+                if diseaseList.count > 1 {
+                    diseasePetInputView.textField.text = rangeString(len: 16, value: "\(diseaseList[0].name), \(diseaseList[1].name)", isDot: true)
+                    if diseaseList.count > 2 {
+                        diseasePetInputView.textField.text = "\(rangeString(len: 14, value: "\(diseaseList[0].name), \(diseaseList[1].name)"))...\(diseaseList.count)개"
+                    }
+                }
+            } else {
+                diseasePetInputView.textField.text = ""
+            }
+        }
+    }
+}
+
+// MARK: HTTP - GetPetFoodCategories2
+extension PetEtcViewController: GetPetFoodCategories2RequestProtocol {
+    func response(foodCategory2List: [FoodCategory2]?, getPetFoodCategories2 status: String) {
+        print("[HTTP RES]", getPetFoodCategories2Request.apiUrl, status)
+        
+        if status == "OK" {
+            guard let allergyList = foodCategory2List else { return }
+            selectedAllergyList = allergyList
+            selectAllergyVC.selectedAllergyList = allergyList
+            selectAllergyVC.isEditMode = true
+            
+            if allergyList.count > 0 {
+                allergyPetInputView.textField.text = allergyList[0].name
+                if allergyList.count > 1 {
+                    allergyPetInputView.textField.text = rangeString(len: 16, value: "\(allergyList[0].name), \(allergyList[1].name)", isDot: true)
+                    if allergyList.count > 2 {
+                        allergyPetInputView.textField.text = "\(rangeString(len: 14, value: "\(allergyList[0].name), \(allergyList[1].name)"))...\(allergyList.count)개"
+                    }
+                }
+            } else {
+                allergyPetInputView.textField.text = ""
+            }
         }
     }
 }

@@ -16,4 +16,6 @@ struct Disease: Codable {
     var management: String? = ""
     var operation: String
     var cnt: Int? = 0
+    
+    var symptomNameList: [String]? = []
 }

@@ -48,7 +48,10 @@ class DiseaseGraphView: UIView {
         
         translatesAutoresizingMaskIntoConstraints = false
         
-        guard let cnt = disease.cnt else { return }
+        var cnt = 0
+        if let _cnt = disease.cnt { cnt = _cnt }
+        
+//        guard let cnt = disease.cnt else { return }
         let ratio = Float(cnt) / Float(similarCnt)
         
         nameLabel.text = disease.name

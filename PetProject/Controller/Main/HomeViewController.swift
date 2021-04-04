@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -288,7 +289,7 @@ class HomeViewController: UIViewController {
         getPetRequest.delegate = self
         getPetIngredientRequest.delegate = self
         
-        getPetRequest.fetch(vc: self, paramDict: ["peId": String(app.getUserPetId())])
+        getPetRequest.fetch(vc: self, paramDict: ["peId": String(app.getPetId())])
     }
     
     
@@ -474,15 +475,15 @@ class HomeViewController: UIViewController {
     
     // MARK: Function - @OBJC
     @objc func searchDiseaseTapped() {
-        print("searchDiseaseTapped")
+        mainVC?.openSearchVC(tab: "DISEASE")
     }
     
     @objc func searchFoodTapped() {
-        print("searchFoodTapped")
+        mainVC?.openSearchVC(tab: "FOOD")
     }
     
     @objc func searchSymptomTapped() {
-        print("searchSymptomTapped")
+        mainVC?.openSearchVC(tab: "SYMPTOM")
     }
     
     @objc func moreHotTapped() {

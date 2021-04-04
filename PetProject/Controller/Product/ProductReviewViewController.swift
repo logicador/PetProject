@@ -18,7 +18,7 @@ class ProductReviewViewController: UIViewController {
             
             isModalInPresentation = true
             showIndicator(idv: indicatorView, bov: blurOverlayView)
-            getProductReviewRequest.fetch(vc: self, paramDict: ["pId": String(product.id), "peId": String(app.getUserPetId())])
+            getProductReviewRequest.fetch(vc: self, paramDict: ["pId": String(product.id), "peId": String(app.getPetId())])
         }
     }
     let getProductReviewRequest = GetProductReviewRequest()
@@ -42,6 +42,7 @@ class ProductReviewViewController: UIViewController {
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -84,7 +85,7 @@ class ProductReviewViewController: UIViewController {
     }()
     lazy var headerStarLabel: UILabel = {
         let label = UILabel()
-        label.text = "이것도 유사견 별점?"
+        label.text = "전체 별점"
         label.textColor = .systemGray2
         label.font = .boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -248,7 +249,7 @@ class ProductReviewViewController: UIViewController {
     }()
     lazy var graphSimilarSideLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .mainColor
+        label.textColor = .systemRed
         label.font = .systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -621,13 +622,13 @@ extension ProductReviewViewController: GetProductReviewRequestProtocol {
             guard let costScore = costScore else { return }
             guard let sidePer = sidePer else { return }
             
-            similarScoreLabel.text = String(similarTotalScore)
-            scoreLabel.text = String(totalScore)
+            similarScoreLabel.text = String(format: "%.1f", similarTotalScore)
+            scoreLabel.text = String(format: "%.1f", totalScore)
             reviewCntLabel.text = String(reviewList.count)
             
             // MARK: Graph - Pala
-            graphSimilarPalaLabel.text = String(similarPalaScore)
-            graphPalaLabel.text = String(palaScore)
+            graphSimilarPalaLabel.text = String(format: "%.1f", similarPalaScore)
+            graphPalaLabel.text = String(format: "%.1f", palaScore)
             
             let similarPalaGageView = UIView()
             similarPalaGageView.backgroundColor = .mainColor
@@ -650,8 +651,8 @@ extension ProductReviewViewController: GetProductReviewRequestProtocol {
             palaGageView.bottomAnchor.constraint(equalTo: graphPalaView.bottomAnchor).isActive = true
             
             // MARK: Graph - Bene
-            graphSimilarBeneLabel.text = String(similarBeneScore)
-            graphBeneLabel.text = String(beneScore)
+            graphSimilarBeneLabel.text = String(format: "%.1f", similarBeneScore)
+            graphBeneLabel.text = String(format: "%.1f", beneScore)
             
             let similarBeneGageView = UIView()
             similarBeneGageView.backgroundColor = .mainColor
@@ -674,8 +675,8 @@ extension ProductReviewViewController: GetProductReviewRequestProtocol {
             beneGageView.bottomAnchor.constraint(equalTo: graphBeneView.bottomAnchor).isActive = true
             
             // MARK: Graph - Cost
-            graphSimilarCostLabel.text = String(similarCostScore)
-            graphCostLabel.text = String(costScore)
+            graphSimilarCostLabel.text = String(format: "%.1f", similarCostScore)
+            graphCostLabel.text = String(format: "%.1f", costScore)
             
             let similarCostGageView = UIView()
             similarCostGageView.backgroundColor = .mainColor
@@ -702,7 +703,7 @@ extension ProductReviewViewController: GetProductReviewRequestProtocol {
             graphSideLabel.text = String(sidePer)
             
             let similarSideGageView = UIView()
-            similarSideGageView.backgroundColor = .mainColor
+            similarSideGageView.backgroundColor = .systemRed
             similarSideGageView.translatesAutoresizingMaskIntoConstraints = false
             
             graphSimilarSideView.addSubview(similarSideGageView)

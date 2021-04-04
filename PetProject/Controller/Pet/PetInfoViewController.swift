@@ -17,11 +17,33 @@ class PetInfoViewController: UIViewController {
     var selectedBreed: Breed?
     let petHealthVC = PetHealthViewController()
     let searchBreedVC = SearchBreedViewController()
+    var isThumbnailChanged: Bool = false
+    var isEditMode: Bool = false {
+        didSet {
+            if isEditMode {
+                let pet = app.getPet()
+                namePetInputView.textField.text = pet.name
+                birthPetInputView.textField.text = String(pet.birth)
+                selectedBreed = pet.breed
+                breedPetInputView.textField.text = pet.breed.name
+                if pet.gender == "M" {
+                    maleButton.setSelect(isSelected: true)
+                } else {
+                    femaleButton.setSelect(isSelected: true)
+                }
+                nextButton.setActive(isActive: true)
+                guard let thumbnail = pet.thumbnail else { return }
+                guard let url = URL(string: PROJECT_URL + thumbnail) else { return }
+                thumbImageView.sd_setImage(with: url, completed: nil)
+            }
+        }
+    }
     
     
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -176,12 +198,12 @@ class PetInfoViewController: UIViewController {
         guard let user = self.user else { return }
         
         if user.petCnt > 0 {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left")?.withTintColor(.black, renderingMode: .alwaysOriginal), style: UIBarButtonItem.Style.plain, target: self, action: #selector(backTapped))
+//            navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left")?.withTintColor(.black, renderingMode: .alwaysOriginal), style: UIBarButtonItem.Style.plain, target: self, action: #selector(backTapped))
         } else {
             navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backTapped))
         }
         
-        navigationController?.navigationBar.tintColor = .mainColor
+//        navigationController?.navigationBar.tintColor = .mainColor
         
         configureView()
         
@@ -191,13 +213,15 @@ class PetInfoViewController: UIViewController {
         petHealthVC.delegate = self
         searchBreedVC.delegate = self
         
+        petHealthVC.isEditMode = isEditMode
+        
         // MARK: For DEV_DEBUG
-        namePetInputView.textField.text = "찹찹이"
-        birthPetInputView.textField.text = "20190101"
-        breedPetInputView.textField.text = "말티즈"
-        selectedBreed = Breed(id: 4, name: "말티즈_TEST", type: "S")
-        maleButton.setSelect(isSelected: true)
-        nextButton.setActive(isActive: true)
+//        namePetInputView.textField.text = "찹찹이"
+//        birthPetInputView.textField.text = "20190101"
+//        breedPetInputView.textField.text = "말티즈"
+//        selectedBreed = Breed(id: 4, name: "말티즈_TEST", type: "S")
+//        maleButton.setSelect(isSelected: true)
+//        nextButton.setActive(isActive: true)
     }
     
     
@@ -480,6 +504,7 @@ extension PetInfoViewController: UIImagePickerControllerDelegate, UINavigationCo
         }
         if let _selectedImage = selectedImage {
             thumbImageView.image = _selectedImage
+            isThumbnailChanged = true
         }
         dismiss(animated: true, completion: nil)
     }
@@ -503,6 +528,6 @@ extension PetInfoViewController: PetHealthViewControllerProtocol {
         guard let birth = birthPetInputView.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         guard let breed = selectedBreed else { return }
         let gender = (maleButton.backgroundColor == .mainColor) ? "M" : "F"
-        petHealthVC.addPet(thumb: thumb, name: name, birth: birth, breed: breed, gender: gender)
+        petHealthVC.addPet(thumb: thumb, name: name, birth: birth, breed: breed, gender: gender, isThumbnailChanged: isThumbnailChanged)
     }
 }

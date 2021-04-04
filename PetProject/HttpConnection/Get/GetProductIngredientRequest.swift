@@ -101,7 +101,7 @@ class GetProductIngredientRequest: HttpRequest {
                 var nutrientList: [Nutrient] = []
                 
                 for resFood in resFoodList {
-                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, desc: resFood.f_desc, nutrientList: [])
+                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, descShort: resFood.f_desc_short, desc: resFood.f_desc, thumbnail: resFood.f_thumbnail, edible: resFood.f_edible, nutrientList: [])
                     foodList.append(food)
                 }
                 for resNutrient in resNutrientList {

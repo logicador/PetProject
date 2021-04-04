@@ -12,4 +12,5 @@ struct BodyPart: Codable {
     var id: Int
     var name: String
     var diseaseList: [Disease] = []
+    var symptomList: [Symptom] = []
 }

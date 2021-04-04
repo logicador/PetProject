@@ -19,6 +19,7 @@ class SettingViewController: UIViewController {
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -78,6 +79,12 @@ class SettingViewController: UIViewController {
         return lv
     }()
     
+    lazy var editPetSettingView: SettingView = {
+        let sv = SettingView()
+        sv.label.text = "펫 정보 수정"
+        sv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(editPetTapped)))
+        return sv
+    }()
     lazy var noticeSettingView: SettingView = {
         let sv = SettingView()
         sv.label.text = "공지사항"
@@ -88,6 +95,12 @@ class SettingViewController: UIViewController {
         let sv = SettingView()
         sv.label.text = "1:1 문의"
         sv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(questionTapped)))
+        return sv
+    }()
+    lazy var MyReviewSettingView: SettingView = {
+        let sv = SettingView()
+        sv.label.text = "내가 쓴 리뷰"
+        sv.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(myReviewTapped)))
         return sv
     }()
     lazy var agreementSettingView: SettingView = {
@@ -184,16 +197,21 @@ class SettingViewController: UIViewController {
         profileNickNameContainerView.addSubview(profileNickNameLabel)
         profileNickNameLabel.topAnchor.constraint(equalTo: profileNickNameContainerView.topAnchor).isActive = true
         profileNickNameLabel.leadingAnchor.constraint(equalTo: profileNickNameContainerView.leadingAnchor).isActive = true
+        profileNickNameLabel.bottomAnchor.constraint(equalTo: profileNickNameContainerView.bottomAnchor).isActive = true
         
-        profileNickNameContainerView.addSubview(profileNickNameButton)
-        profileNickNameButton.topAnchor.constraint(equalTo: profileNickNameLabel.bottomAnchor, constant: SPACE_XXXXXS).isActive = true
-        profileNickNameButton.leadingAnchor.constraint(equalTo: profileNickNameContainerView.leadingAnchor).isActive = true
-        profileNickNameButton.bottomAnchor.constraint(equalTo: profileNickNameContainerView.bottomAnchor).isActive = true
+//        profileNickNameContainerView.addSubview(profileNickNameButton)
+//        profileNickNameButton.topAnchor.constraint(equalTo: profileNickNameLabel.bottomAnchor, constant: SPACE_XXXXXS).isActive = true
+//        profileNickNameButton.leadingAnchor.constraint(equalTo: profileNickNameContainerView.leadingAnchor).isActive = true
+//        profileNickNameButton.bottomAnchor.constraint(equalTo: profileNickNameContainerView.bottomAnchor).isActive = true
         
         profileContainerView.addSubview(profileBottomLine)
         profileBottomLine.leadingAnchor.constraint(equalTo: profileContainerView.leadingAnchor).isActive = true
         profileBottomLine.trailingAnchor.constraint(equalTo: profileContainerView.trailingAnchor).isActive = true
         profileBottomLine.bottomAnchor.constraint(equalTo: profileContainerView.bottomAnchor).isActive = true
+        
+//        stackView.addArrangedSubview(editPetSettingView)
+//        editPetSettingView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+//        editPetSettingView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
         stackView.addArrangedSubview(noticeSettingView)
         noticeSettingView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
@@ -202,6 +220,10 @@ class SettingViewController: UIViewController {
         stackView.addArrangedSubview(questionSettingView)
         questionSettingView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
         questionSettingView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        
+        stackView.addArrangedSubview(MyReviewSettingView)
+        MyReviewSettingView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        MyReviewSettingView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
         stackView.addArrangedSubview(agreementSettingView)
         agreementSettingView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
@@ -221,6 +243,12 @@ class SettingViewController: UIViewController {
     }
     
     // MARK: Function - @OBJC
+    @objc func editPetTapped() {
+        let petInfoVC = PetInfoViewController()
+        petInfoVC.isEditMode = true
+        navigationController?.pushViewController(petInfoVC, animated: true)
+    }
+    
     @objc func editNickNameTapped() {
         navigationController?.pushViewController(EditNickNameViewController(), animated: true)
     }
@@ -233,18 +261,22 @@ class SettingViewController: UIViewController {
         navigationController?.pushViewController(QuestionViewController(), animated: true)
     }
     
+    @objc func myReviewTapped() {
+        navigationController?.pushViewController(MyReviewViewController(), animated: true)
+    }
+    
     @objc func agreementTapped() {
-        let termsWevVC = TermsWebViewController()
-        termsWevVC.navigationItem.title = "이용약관"
-        termsWevVC.path = "/agreement"
-        navigationController?.pushViewController(termsWevVC, animated: true)
+        let termsWebVC = TermsWebViewController()
+        termsWebVC.navigationItem.title = "이용약관"
+        termsWebVC.terms = "agreement"
+        navigationController?.pushViewController(termsWebVC, animated: true)
     }
     
     @objc func privacyTapped() {
-        let termsWevVC = TermsWebViewController()
-        termsWevVC.navigationItem.title = "개인정보 처리방침"
-        termsWevVC.path = "/privacy"
-        navigationController?.pushViewController(termsWevVC, animated: true)
+        let termsWebVC = TermsWebViewController()
+        termsWebVC.navigationItem.title = "개인정보 처리방침"
+        termsWebVC.terms = "privacy"
+        navigationController?.pushViewController(termsWebVC, animated: true)
     }
     
     @objc func logoutTapped() {

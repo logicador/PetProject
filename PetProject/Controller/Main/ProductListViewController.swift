@@ -181,6 +181,7 @@ class ProductListViewController: UIViewController {
     // MARK: View - Other
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -199,8 +200,8 @@ class ProductListViewController: UIViewController {
         let label = UILabel()
         label.textColor = .systemGray2
         let mabs = NSMutableAttributedString()
-            .bold("[친구 추천]", fontSize: 14)
-            .thin(" 카테고리에서는 견종 / 나이 / 성별 / 비만도 / 병력사항 / 예방접종유무를 기준으로 나의 반려견과 유사항 데이터만 분석해서 제공드리는 내용입니다.", fontSize: 14)
+            .bold("[\(app.getPetName()) 친구 추천]", fontSize: 14)
+            .thin(" 카테고리에서는 견종 / 나이 / 성별 / BCS비만도 / 중성화수술 유무를 기준으로 나의 반려견과 유사한 반려견의 데이터만 제공됩니다.", fontSize: 14)
         label.attributedText = mabs
         label.setLineSpacing(lineSpacing: SPACE_XXXXS)
         label.textAlignment = .center
@@ -428,7 +429,7 @@ class ProductListViewController: UIViewController {
     
     func getProducts() {
         showIndicator(idv: indicatorView, bov: blurOverlayView)
-        getProductsRequest.fetch(vc: self, paramDict: ["peId": String(app.getUserPetId()), "tab": selectedTab, "category": selectedCategory, "filter": selectedFilter.filter])
+        getProductsRequest.fetch(vc: self, paramDict: ["peId": String(app.getPetId()), "tab": selectedTab, "category": selectedCategory, "filter": selectedFilter.filter])
     }
     
     // MARK: Function - @OBJC

@@ -16,6 +16,7 @@ class ProductAllIngredientViewController: UIViewController {
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -108,7 +109,9 @@ class ProductAllIngredientViewController: UIViewController {
         
         navigationItem.title = "전체성분 살펴 보기"
         
-        isModalInPresentation = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+//        isModalInPresentation = true
     }
     
     
@@ -177,6 +180,7 @@ class ProductAllIngredientViewController: UIViewController {
         for food in productWarningFoodList {
             let piv = ProductIngredientView(effect: "WARNING")
             piv.food = food
+            piv.delegate = self
 
             warningStackView.addArrangedSubview(piv)
             piv.centerXAnchor.constraint(equalTo: warningStackView.centerXAnchor).isActive = true
@@ -191,6 +195,7 @@ class ProductAllIngredientViewController: UIViewController {
         for nutrient in productWarningNutrientList {
             let piv = ProductIngredientView(effect: "WARNING")
             piv.nutrient = nutrient
+            piv.delegate = self
 
             warningStackView.addArrangedSubview(piv)
             piv.centerXAnchor.constraint(equalTo: warningStackView.centerXAnchor).isActive = true
@@ -209,6 +214,7 @@ class ProductAllIngredientViewController: UIViewController {
         for food in productGoodFoodList {
             let piv = ProductIngredientView(effect: "GOOD")
             piv.food = food
+            piv.delegate = self
 
             goodStackView.addArrangedSubview(piv)
             piv.centerXAnchor.constraint(equalTo: goodStackView.centerXAnchor).isActive = true
@@ -223,6 +229,7 @@ class ProductAllIngredientViewController: UIViewController {
         for nutrient in productGoodNutrientList {
             let piv = ProductIngredientView(effect: "GOOD")
             piv.nutrient = nutrient
+            piv.delegate = self
 
             goodStackView.addArrangedSubview(piv)
             piv.centerXAnchor.constraint(equalTo: goodStackView.centerXAnchor).isActive = true
@@ -241,6 +248,7 @@ class ProductAllIngredientViewController: UIViewController {
         for food in productNormalFoodList {
             let piv = ProductIngredientView()
             piv.food = food
+            piv.delegate = self
 
             normalStackView.addArrangedSubview(piv)
             piv.centerXAnchor.constraint(equalTo: normalStackView.centerXAnchor).isActive = true
@@ -255,6 +263,7 @@ class ProductAllIngredientViewController: UIViewController {
         for nutrient in productNormalNutrientList {
             let piv = ProductIngredientView()
             piv.nutrient = nutrient
+            piv.delegate = self
 
             normalStackView.addArrangedSubview(piv)
             piv.centerXAnchor.constraint(equalTo: normalStackView.centerXAnchor).isActive = true
@@ -273,5 +282,20 @@ class ProductAllIngredientViewController: UIViewController {
         warningTitleLabel.text = "주의성분 (\(productWarningFoodList.count + productWarningNutrientList.count))"
         goodTitleLabel.text = "긍정성분 (\(productGoodFoodList.count + productGoodNutrientList.count))"
         normalTitleLabel.text = "보통성분 (\(productNormalFoodList.count + productNormalNutrientList.count))"
+    }
+}
+
+
+// MARK: ProductIngredientView
+extension ProductAllIngredientViewController: ProductIngredientViewProtocol {
+    func selectIngredient(nutrient: Nutrient?, food: Food?) {
+        if let _ = nutrient {
+            
+        } else {
+            guard let food = food else { return }
+            let foodVC = FoodViewController()
+            foodVC.food = food
+            navigationController?.pushViewController(foodVC, animated: true)
+        }
     }
 }

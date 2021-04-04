@@ -12,6 +12,7 @@ class QuestionViewController: UIViewController {
     
     // MARK: Property
     let addQuestionRequest = AddQuestionRequest()
+    let getQuestionsRequest = GetQuestionsRequest()
     
     
     // MARK: View
@@ -82,30 +83,30 @@ class QuestionViewController: UIViewController {
         cb.addTarget(self, action: #selector(addQuestionTapped), for: .touchUpInside)
         return cb
     }()
-    lazy var titleTitleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "제목"
-        label.font = .boldSystemFont(ofSize: 20)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    lazy var titleTextContainerView: UIView = {
-        let view = UIView()
-        view.layer.borderWidth = LINE_WIDTH
-        view.layer.cornerRadius = SPACE_XXS
-        view.layer.borderColor = UIColor.separator.cgColor
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    lazy var titleTextField: UITextField = {
-        let tf = UITextField()
-        tf.font = .systemFont(ofSize: 14)
-        tf.translatesAutoresizingMaskIntoConstraints = false
-        return tf
-    }()
+//    lazy var titleTitleLabel: UILabel = {
+//        let label = UILabel()
+//        label.text = "제목"
+//        label.font = .boldSystemFont(ofSize: 20)
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        return label
+//    }()
+//    lazy var titleTextContainerView: UIView = {
+//        let view = UIView()
+//        view.layer.borderWidth = LINE_WIDTH
+//        view.layer.cornerRadius = SPACE_XXS
+//        view.layer.borderColor = UIColor.separator.cgColor
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+//    lazy var titleTextField: UITextField = {
+//        let tf = UITextField()
+//        tf.font = .systemFont(ofSize: 14)
+//        tf.translatesAutoresizingMaskIntoConstraints = false
+//        return tf
+//    }()
     lazy var contentsTitleLabel: UILabel = {
         let label = UILabel()
-        label.text = "내용"
+        label.text = "문의내용"
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -133,6 +134,22 @@ class QuestionViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    lazy var historyScrollView: UIScrollView = {
+        let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
+        sv.delegate = self
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    lazy var historyStackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.distribution = .fill
+        sv.alignment = .center
+        sv.spacing = SPACE_XXL
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
     
     
     // MARK: ViewDidLoad
@@ -146,6 +163,7 @@ class QuestionViewController: UIViewController {
         configureView()
         
         addQuestionRequest.delegate = self
+        getQuestionsRequest.delegate = self
         
         hideKeyboardWhenTappedAround()
     }
@@ -210,24 +228,24 @@ class QuestionViewController: UIViewController {
         addQuestionButton.heightAnchor.constraint(equalTo: bottomView.widthAnchor, multiplier: 0.12).isActive = true
         addQuestionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
-        questionContainerView.addSubview(titleTitleLabel)
-        titleTitleLabel.topAnchor.constraint(equalTo: questionContainerView.topAnchor, constant: SPACE_XXL).isActive = true
-        titleTitleLabel.centerXAnchor.constraint(equalTo: questionContainerView.centerXAnchor).isActive = true
-        titleTitleLabel.widthAnchor.constraint(equalTo: questionContainerView.widthAnchor, multiplier: CONTENTS_RATIO_XS).isActive = true
-        
-        questionContainerView.addSubview(titleTextContainerView)
-        titleTextContainerView.topAnchor.constraint(equalTo: titleTitleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
-        titleTextContainerView.centerXAnchor.constraint(equalTo: questionContainerView.centerXAnchor).isActive = true
-        titleTextContainerView.widthAnchor.constraint(equalTo: questionContainerView.widthAnchor, multiplier: CONTENTS_RATIO_XS).isActive = true
-        
-        titleTextContainerView.addSubview(titleTextField)
-        titleTextField.topAnchor.constraint(equalTo: titleTextContainerView.topAnchor, constant: SPACE_XS).isActive = true
-        titleTextField.leadingAnchor.constraint(equalTo: titleTextContainerView.leadingAnchor, constant: SPACE_S).isActive = true
-        titleTextField.trailingAnchor.constraint(equalTo: titleTextContainerView.trailingAnchor, constant: -SPACE_S).isActive = true
-        titleTextField.bottomAnchor.constraint(equalTo: titleTextContainerView.bottomAnchor, constant: -SPACE_XS).isActive = true
+//        questionContainerView.addSubview(titleTitleLabel)
+//        titleTitleLabel.topAnchor.constraint(equalTo: questionContainerView.topAnchor, constant: SPACE_XXL).isActive = true
+//        titleTitleLabel.centerXAnchor.constraint(equalTo: questionContainerView.centerXAnchor).isActive = true
+//        titleTitleLabel.widthAnchor.constraint(equalTo: questionContainerView.widthAnchor, multiplier: CONTENTS_RATIO_XS).isActive = true
+//
+//        questionContainerView.addSubview(titleTextContainerView)
+//        titleTextContainerView.topAnchor.constraint(equalTo: titleTitleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
+//        titleTextContainerView.centerXAnchor.constraint(equalTo: questionContainerView.centerXAnchor).isActive = true
+//        titleTextContainerView.widthAnchor.constraint(equalTo: questionContainerView.widthAnchor, multiplier: CONTENTS_RATIO_XS).isActive = true
+//
+//        titleTextContainerView.addSubview(titleTextField)
+//        titleTextField.topAnchor.constraint(equalTo: titleTextContainerView.topAnchor, constant: SPACE_XS).isActive = true
+//        titleTextField.leadingAnchor.constraint(equalTo: titleTextContainerView.leadingAnchor, constant: SPACE_S).isActive = true
+//        titleTextField.trailingAnchor.constraint(equalTo: titleTextContainerView.trailingAnchor, constant: -SPACE_S).isActive = true
+//        titleTextField.bottomAnchor.constraint(equalTo: titleTextContainerView.bottomAnchor, constant: -SPACE_XS).isActive = true
         
         questionContainerView.addSubview(contentsTitleLabel)
-        contentsTitleLabel.topAnchor.constraint(equalTo: titleTextContainerView.bottomAnchor, constant: SPACE_L).isActive = true
+        contentsTitleLabel.topAnchor.constraint(equalTo: questionContainerView.topAnchor, constant: SPACE_XXL).isActive = true
         contentsTitleLabel.centerXAnchor.constraint(equalTo: questionContainerView.centerXAnchor).isActive = true
         contentsTitleLabel.widthAnchor.constraint(equalTo: questionContainerView.widthAnchor, multiplier: CONTENTS_RATIO_XS).isActive = true
         
@@ -249,6 +267,20 @@ class QuestionViewController: UIViewController {
         historyContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         historyContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         historyContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        historyContainerView.addSubview(historyScrollView)
+        historyScrollView.topAnchor.constraint(equalTo: historyContainerView.topAnchor).isActive = true
+        historyScrollView.leadingAnchor.constraint(equalTo: historyContainerView.leadingAnchor).isActive = true
+        historyScrollView.trailingAnchor.constraint(equalTo: historyContainerView.trailingAnchor).isActive = true
+        historyScrollView.widthAnchor.constraint(equalTo: historyContainerView.widthAnchor).isActive = true
+        historyScrollView.bottomAnchor.constraint(equalTo: historyContainerView.bottomAnchor).isActive = true
+        
+        historyScrollView.addSubview(historyStackView)
+        historyStackView.topAnchor.constraint(equalTo: historyScrollView.topAnchor, constant: SPACE_XXL).isActive = true
+        historyStackView.leadingAnchor.constraint(equalTo: historyScrollView.leadingAnchor).isActive = true
+        historyStackView.trailingAnchor.constraint(equalTo: historyScrollView.trailingAnchor).isActive = true
+        historyStackView.widthAnchor.constraint(equalTo: historyScrollView.widthAnchor).isActive = true
+        historyStackView.bottomAnchor.constraint(equalTo: historyScrollView.bottomAnchor).isActive = true
     }
     
     // MARK: Function - @OBJC
@@ -267,6 +299,8 @@ class QuestionViewController: UIViewController {
             })
             
         } else {
+            getQuestionsRequest.fetch(vc: self, paramDict: [:])
+            
             tabQuestionButton.tintColor = .systemGray2
             tabHistoryButton.tintColor = .mainColor
             historyContainerView.isHidden = false
@@ -282,15 +316,15 @@ class QuestionViewController: UIViewController {
     @objc func addQuestionTapped() {
         dismissKeyboard()
         
-        guard let _title = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+//        guard let _title = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         let contents = contentsTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if _title.count < 5 || _title.count > 20 {
-            let alert = UIAlertController(title: nil, message: "제목은 5-20자 까지 입력 가능합니다.\n\n\(_title.count)/20", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "닫기", style: .cancel))
-            present(alert, animated: true)
-            return
-        }
+//        if _title.count < 5 || _title.count > 20 {
+//            let alert = UIAlertController(title: nil, message: "제목은 5-20자 까지 입력 가능합니다.\n\n\(_title.count)/20", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "닫기", style: .cancel))
+//            present(alert, animated: true)
+//            return
+//        }
         
         if contents.count < 10 || contents.count > 200 {
             let alert = UIAlertController(title: nil, message: "내용은 10-200자 까지 입력 가능합니다.\n\n\(contents.count)/20", preferredStyle: .alert)
@@ -299,7 +333,7 @@ class QuestionViewController: UIViewController {
             return
         }
         
-        addQuestionRequest.fetch(vc: self, paramDict: ["title": _title, "contents": contents])
+        addQuestionRequest.fetch(vc: self, paramDict: ["contents": contents])
     }
 }
 
@@ -316,5 +350,44 @@ extension QuestionViewController: AddQuestionRequestProtocol {
             }))
             present(alert, animated: true)
         }
+    }
+}
+
+// MARK: HTTP - GetQuestions
+extension QuestionViewController: GetQuestionsRequestProtocol {
+    func response(questionList: [Question]?, getQuestions status: String) {
+        print("[HTTP RES]", getQuestionsRequest.apiUrl, status)
+        
+        if status == "OK" {
+            guard let questionList = questionList else { return }
+            historyStackView.removeAllChildView()
+            
+            for question in questionList {
+                let qv = QuestionView()
+                qv.question = question
+                qv.delegate = self
+                
+                historyStackView.addArrangedSubview(qv)
+                qv.centerXAnchor.constraint(equalTo: historyStackView.centerXAnchor).isActive = true
+                qv.widthAnchor.constraint(equalTo: historyStackView.widthAnchor, multiplier: CONTENTS_RATIO_XS).isActive = true
+            }
+        }
+    }
+}
+
+// MARK: QuestionView
+extension QuestionViewController: QuestionViewProtocol {
+    func selectQuestion(question: Question) {
+        let questionDetailVC = QuestionDetailViewController()
+        questionDetailVC.question = question
+        questionDetailVC.delegate = self
+        present(UINavigationController(rootViewController: questionDetailVC), animated: true, completion: nil)
+    }
+}
+
+// MARK: QuestionDetailViewController
+extension QuestionViewController: QuestionDetailViewControllerProtocol {
+    func removeQuestion() {
+        getQuestionsRequest.fetch(vc: self, paramDict: [:])
     }
 }

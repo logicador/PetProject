@@ -28,12 +28,20 @@ struct ProductsRequestResult: Codable {
     var result: [ProductResultResponse]
 }
 
+struct ProductRequestResult: Codable {
+    var result: ProductResultResponse
+}
+
 struct DiseasesRequestResult: Codable {
     var result: [DiseaseResultResponse]
 }
 
 struct FoodCategoriesRequestResult: Codable {
     var result: [FoodCategoryResultResponse]
+}
+
+struct FoodCategories2RequestResult: Codable {
+    var result: [FoodCategory2ResultResponse]
 }
 
 struct PetRequestResult: Codable {
@@ -58,6 +66,34 @@ struct ReviewRequestResult: Codable {
 
 struct NoticesRequestResult: Codable {
     var result: [NoticeResultResponse]
+}
+
+struct SymptomsRequestResult: Codable {
+    var result: [SymptomResultResponse]
+}
+
+struct FoodsRequestResult: Codable {
+    var result: [FoodResultResponse]
+}
+
+struct FoodDetailRequestResult: Codable {
+    var result: FoodDetailResultResponse
+}
+
+struct DiseaseDetailRequestResult: Codable {
+    var result: DiseaseDetailResultResponse
+}
+
+struct SymptomDetailRequestResult: Codable {
+    var result: SymptomDetailResultResponse
+}
+
+struct QuestionsRequestResult: Codable {
+    var result: [QuestionResultResponse]
+}
+
+struct UserReviewsRequestResult: Codable {
+    var result: [UserReviewResultResponse]
 }
 
 
@@ -133,6 +169,8 @@ struct DiseaseResultResponse: Codable {
     var d_management: String? = ""
     var d_operation: String
     var cnt: Int? = 0
+    
+    var symptomNames: String? = ""
 }
 
 struct FoodCategoryResultResponse: Codable {
@@ -148,6 +186,7 @@ struct PetResultResponse: Codable {
     var pe_name: String
     var pe_thumbnail: String? = ""
     var pe_birth: Int
+    var pe_bcs_step: Int
     var pe_bcs: Int
     var pe_gender: String
     var pe_neuter: String
@@ -161,6 +200,8 @@ struct PetResultResponse: Codable {
     
     var b_name: String
     var b_type: String
+    
+//    var 
 }
 
 struct PetIngredientResultResponse: Codable {
@@ -184,8 +225,11 @@ struct FoodResultResponse: Codable {
     var f_fc1_id: Int
     var f_fc2_id: Int
     var f_name: String
+    var f_desc_short: String? = ""
     var f_desc: String? = ""
     var mfns: String? = ""
+    var f_thumbnail: String? = ""
+    var f_edible: String
 }
 
 struct NutrientResultResponse: Codable {
@@ -240,4 +284,54 @@ struct NoticeResultResponse: Codable {
     var no_contents: String
     var no_created_date: String
     var no_updated_date: String
+}
+
+struct SymptomResultResponse: Codable {
+    var s_id: Int
+    var s_bp_id: Int
+    var s_name: String
+}
+
+struct FoodDetailResultResponse: Codable {
+    var food: FoodResultResponse
+    var nutrientList: [NutrientResultResponse]
+    var diseaseList: [DiseaseResultResponse]
+    var symptomList: [SymptomResultResponse]
+}
+
+struct DiseaseDetailResultResponse: Codable {
+    var disease: DiseaseResultResponse
+    var foodList: [FoodResultResponse]
+    var symptomList: [SymptomResultResponse]
+}
+
+struct SymptomDetailResultResponse: Codable {
+    var similarCnt: Int
+    var symptom: SymptomResultResponse
+    var foodList: [FoodResultResponse]
+    var diseaseList: [DiseaseResultResponse]
+}
+
+struct FoodCategory2ResultResponse: Codable {
+    var fc2_id: Int
+    var fc2_fc1_id: Int
+    var fc2_name: String
+}
+
+struct QuestionResultResponse: Codable {
+    var q_id: Int
+    var q_contents: String
+    var q_status: String
+    var q_answer: String? = ""
+    var q_created_date: String
+    var q_answered_date: String
+}
+
+struct UserReviewResultResponse: Codable {
+    var pr_id: Int
+    var pr_desc_adv: String? = ""
+    var pr_desc_disadv: String? = ""
+    
+    var p_id: Int
+    var p_thumbnail: String
 }

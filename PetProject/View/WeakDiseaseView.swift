@@ -11,6 +11,16 @@ import UIKit
 class WeakDiseaseView: UIView {
     
     // MARK: View
+    lazy var stackView: UIStackView = {
+        let sv = UIStackView()
+        sv.axis = .vertical
+        sv.distribution = .fill
+        sv.alignment = .center
+        sv.spacing = SPACE
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        return sv
+    }()
+    
     lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .mainColor
@@ -50,20 +60,35 @@ class WeakDiseaseView: UIView {
         
         nameLabel.text = disease.name
         
-        let symptomMabs = NSMutableAttributedString()
-            .bold("증상: ", fontSize: 16)
-            .thin("저희 강아지가 어쩌구 저쩌구인데 어쩌구 해요 저희 강아지가 어쩌구 저쩌구인데 어쩌구 저쩌구 인데저희 강아지가 어쩌구 저쩌구 인데 어쩌구 해요 저희 강아지강지가 어쩌구 가 어쩌구 저쩌구인데", fontSize: 16)
-        symptomLabel.attributedText = symptomMabs
+        if let symptomNameList = disease.symptomNameList {
+            if symptomNameList.count == 0 { symptomLabel.isHidden = true }
+            else {
+                let symptomMabs = NSMutableAttributedString()
+                .bold("관련 증상: ", fontSize: 16)
+                    .thin(symptomNameList.joined(separator: " / "), fontSize: 16)
+                symptomLabel.attributedText = symptomMabs
+            }
+        }
         
-        let reasonMabs = NSMutableAttributedString()
-            .bold("원인: ", fontSize: 16)
-            .thin("저희 강아지가 어쩌구 저쩌구인데 어쩌구 해요 저희 강아지가 어쩌구 저쩌구인데 어쩌구 저쩌구 인데저희 강아지가 어쩌구 저쩌구 인데 어쩌구 해요 저희 강아지강지가 어쩌구 가 어쩌구 저쩌구인데", fontSize: 16)
-        reasonLabel.attributedText = reasonMabs
+        if let reason = disease.reason {
+            if reason.isEmpty { reasonLabel.isHidden = true }
+            else {
+                let reasonMabs = NSMutableAttributedString()
+                    .bold("발병 원인: ", fontSize: 16)
+                    .thin(reason, fontSize: 16)
+                reasonLabel.attributedText = reasonMabs
+            }
+        }
         
-        let managementMabs = NSMutableAttributedString()
-            .bold("관리: ", fontSize: 16)
-            .thin("저희 강아지가 어쩌구 저쩌구인데 어쩌구 해요 저희 강아지가 어쩌구 저쩌구인데 어쩌구 저쩌구 인데저희 강아지가 어쩌구 저쩌구 인데 어쩌구 해요 저희 강아지강지가 어쩌구 가 어쩌구 저쩌구인데", fontSize: 16)
-        managementLabel.attributedText = managementMabs
+        if let management = disease.management {
+            if management.isEmpty { managementLabel.isHidden = true }
+            else {
+                let managementMabs = NSMutableAttributedString()
+                    .bold("관리법: ", fontSize: 16)
+                    .thin(management, fontSize: 16)
+                managementLabel.attributedText = managementMabs
+            }
+        }
         
         configureView()
         
@@ -77,24 +102,26 @@ class WeakDiseaseView: UIView {
     
     // MARK: Function
     func configureView() {
-        addSubview(nameLabel)
-        nameLabel.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        addSubview(symptomLabel)
-        symptomLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: SPACE).isActive = true
-        symptomLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        symptomLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.addArrangedSubview(nameLabel)
+        nameLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
-        addSubview(reasonLabel)
-        reasonLabel.topAnchor.constraint(equalTo: symptomLabel.bottomAnchor, constant: SPACE).isActive = true
-        reasonLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        reasonLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.addArrangedSubview(symptomLabel)
+        symptomLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        symptomLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
         
-        addSubview(managementLabel)
-        managementLabel.topAnchor.constraint(equalTo: reasonLabel.bottomAnchor, constant: SPACE).isActive = true
-        managementLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        managementLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        managementLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        stackView.addArrangedSubview(reasonLabel)
+        reasonLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        reasonLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
+        
+        stackView.addArrangedSubview(managementLabel)
+        managementLabel.leadingAnchor.constraint(equalTo: stackView.leadingAnchor).isActive = true
+        managementLabel.trailingAnchor.constraint(equalTo: stackView.trailingAnchor).isActive = true
     }
 }

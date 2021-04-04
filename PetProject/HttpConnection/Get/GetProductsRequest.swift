@@ -114,10 +114,10 @@ class GetProductsRequest: HttpRequest {
                     }
                     
                     let reviewCnt = resProduct.reviewCnt ?? 0
-                    let palaScore = round((resProduct.palaScore ?? 0) * 10) / 10
-                    let beneScore = round((resProduct.beneScore ?? 0) * 10) / 10
-                    let costScore = round((resProduct.costScore ?? 0) * 10) / 10
-                    let avgScore = round(((palaScore + beneScore + costScore) / 3) * 10) / 10
+                    let palaScore = resProduct.palaScore ?? 0
+                    let beneScore = resProduct.beneScore ?? 0
+                    let costScore = resProduct.costScore ?? 0
+                    let avgScore = (palaScore + beneScore + costScore) / 3
                     let sideCnt = resProduct.sideCnt ?? 0
                     
                     let product = Product(id: resProduct.p_id, pcId: resProduct.p_pc_id, pbId: resProduct.p_pb_id, name: resProduct.p_name, price: resProduct.p_price, thumbnail: resProduct.p_thumbnail, origin: resProduct.p_origin, manufacturer: resProduct.p_manufacturer, packingVolume: resProduct.p_packing_volume, recommend: resProduct.p_recommend, totalScore: resProduct.p_total_score, createdDate: resProduct.p_created_date, updatedDate: resProduct.p_updated_date, pbName: resProduct.pb_name, fnProt: resProduct.fn_prot, fnFat: resProduct.fn_fat, fnFibe: resProduct.fn_fibe, fnAsh: resProduct.fn_ash, fnCalc: resProduct.fn_calc, fnPhos: resProduct.fn_phos, fnMois: resProduct.fn_mois, imageList: imageList, detailImageList: detailImageList, reviewCnt: reviewCnt, avgScore: avgScore, palaScore: palaScore, beneScore: beneScore, costScore: costScore, sideCnt: sideCnt)

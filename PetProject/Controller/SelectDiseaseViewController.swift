@@ -20,11 +20,13 @@ class SelectDiseaseViewController: UIViewController {
     var bodyPartList = BODYPARTS
     let getDiseaseRequest = GetDiseasesRequest()
     var selectedDiseaseList: [Disease] = []
+    var isEditMode: Bool = false
     
     
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -74,13 +76,14 @@ class SelectDiseaseViewController: UIViewController {
 }
 
 
-// MARK: HTTP - GetDisease
+// MARK: HTTP - GetDiseases
 extension SelectDiseaseViewController: GetDiseasesRequestProtocol {
     func response(diseaseList: [Disease]?, getDiseases status: String) {
         print("[HTTP RES]", getDiseaseRequest.apiUrl, status)
         
         if status == "OK" {
             guard let diseaseList = diseaseList else { return }
+            
             for disease in diseaseList {
                 for (i, bodyPart) in bodyPartList.enumerated() {
                     if disease.bpId == bodyPart.id {
@@ -92,19 +95,31 @@ extension SelectDiseaseViewController: GetDiseasesRequestProtocol {
             
             for (i, bodyPart) in bodyPartList.enumerated() {
                 var indexItemList: [IndexItem] = []
+                var selectedIndexItemList: [IndexItem] = []
                 for (j, disease) in bodyPart.diseaseList.enumerated() {
                     let indexItem = IndexItem(index: j, name: disease.name)
                     indexItemList.append(indexItem)
+                    
+                    if isEditMode {
+                        for selectedDisease in selectedDiseaseList {
+                            if disease.id == selectedDisease.id {
+                                selectedIndexItemList.append(indexItem)
+                                break
+                            }
+                        }
+                    }
                 }
                 
                 let ov = OpenView(index: i)
                 ov.delegate = self
                 ov.indexItemList = indexItemList
+                ov.selectedIndexItemList = selectedIndexItemList
                 ov.label.text = "\(bodyPart.name)(\(bodyPart.diseaseList.count))"
                 stackView.addArrangedSubview(ov)
                 ov.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true
                 ov.widthAnchor.constraint(equalTo: stackView.widthAnchor, multiplier: CONTENTS_RATIO_L).isActive = true
             }
+            
         }
     }
 }

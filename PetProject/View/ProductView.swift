@@ -30,11 +30,11 @@ class ProductView: UIView {
             nameLabel.text = product.name
             priceLabel.text = "\(product.packingVolume) / \(product.price.intComma())원"
             
-            totalScoreLabel.text = " \(String(product.avgScore)) "
+            totalScoreLabel.text = " \(String(format: "%.1f", product.avgScore)) "
             totalScoreCntLabel.text = "(\(String(product.reviewCnt)))"
-            palaScoreLabel.text = String(product.palaScore)
-            beneScoreLabel.text = String(product.beneScore)
-            costScoreLabel.text = String(product.costScore)
+            palaScoreLabel.text = String(format: "%.1f", product.palaScore)
+            beneScoreLabel.text = String(format: "%.1f", product.beneScore)
+            costScoreLabel.text = String(format: "%.1f", product.costScore)
         }
     }
     

@@ -91,7 +91,6 @@ class GetProductReviewRequest: HttpRequest {
             // MARK: Response
             do {
                 let decoded = try JSONDecoder().decode(ProductReviewRequestResult.self, from: data)
-                
                 let result = decoded.result
                 
                 let resProductReviewList = result.productReviewList

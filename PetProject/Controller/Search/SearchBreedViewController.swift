@@ -57,11 +57,15 @@ class SearchBreedViewController: UIViewController {
         
         configureView()
         
+        hideKeyboardWhenTappedAround()
+        
         getBreedsRequest.delegate = self
         
+        getBreedsRequest.fetch(vc: self, paramDict: [:])
+        
         // MARK: For DEV_DEBUG
-        navigationItem.searchController?.searchBar.text = "차우"
-        getBreedsRequest.fetch(vc: self, paramDict: ["keyword": "차우"])
+//        navigationItem.searchController?.searchBar.text = "차우"
+//        getBreedsRequest.fetch(vc: self, paramDict: ["keyword": "차우"])
     }
     
     
@@ -133,23 +137,19 @@ extension SearchBreedViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let keyword = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        // 2자 이상 (영어는 4자)
-        if keyword.utf8.count < 4 {
-            return
-        }
+//        // 1자 이상
+//        if keyword.count < 1 { return }
         
         // 한글 Char 거르기
         let wordList = Array(keyword)
         for word in wordList {
-            if KOR_CHAR_LIST.contains(word) {
-                return
-            }
+            if KOR_CHAR_LIST.contains(word) { return }
         }
         
         // 이미 검색한 키워드 (리스트에 뿌려놓음)
         if currentKeyword == keyword { return }
-        
         currentKeyword = keyword
+        
         getBreedsRequest.fetch(vc: self, paramDict: ["keyword": keyword])
     }
 }

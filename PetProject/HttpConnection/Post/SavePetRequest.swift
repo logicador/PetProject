@@ -98,7 +98,7 @@ class SavePetRequest: HttpRequest {
                 
                 let monthAge = vc.getMonthAge(birth: resPet.pe_birth)
                 
-                let pet = Pet(id: resPet.pe_id, uId: resPet.pe_u_id, bId: resPet.pe_b_id, name: resPet.pe_name, thumbnail: resPet.pe_thumbnail, birth: resPet.pe_birth, bcs: resPet.pe_bcs, gender: resPet.pe_gender, neuter: resPet.pe_neuter, inoculation: resPet.pe_inoculation, inoculationText: resPet.pe_inoculation_text, serial: resPet.pe_serial, serialNo: resPet.pe_serial_no, weight: resPet.pe_weight, createdDate: resPet.pe_created_date, updatedDate: resPet.pe_updated_date, breed: breed, monthAge: monthAge)
+                let pet = Pet(id: resPet.pe_id, uId: resPet.pe_u_id, bId: resPet.pe_b_id, name: resPet.pe_name, thumbnail: resPet.pe_thumbnail, birth: resPet.pe_birth, bcsStep: resPet.pe_bcs_step, bcs: resPet.pe_bcs, gender: resPet.pe_gender, neuter: resPet.pe_neuter, inoculation: resPet.pe_inoculation, inoculationText: resPet.pe_inoculation_text, serial: resPet.pe_serial, serialNo: resPet.pe_serial_no, weight: resPet.pe_weight, createdDate: resPet.pe_created_date, updatedDate: resPet.pe_updated_date, breed: breed, monthAge: monthAge)
                 
                 self.delegate?.response(pet: pet, savePet: "OK")
                 

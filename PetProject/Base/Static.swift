@@ -8,8 +8,8 @@
 import UIKit
 
 
-public let PROJECT_URL = "http://121.138.167.244:3004"
-public let ADMIN_URL = "http://54.180.183.34:3000"
+public let PROJECT_URL = "http://api.meongspoon.com" // http://api.meongspoon.com http://54.180.183.34:3004 // http://121.138.167.244:3004
+public let ADMIN_URL = "http://admin.meongspoon.com"
 public let IMAGE_URL = PROJECT_URL + "/images"
 public let API_URL = PROJECT_URL + "/api"
 public let PROJECT_APP_KEY = "abcdefghijklmnopqrstuvwxyz"

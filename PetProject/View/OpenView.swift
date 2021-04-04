@@ -31,6 +31,7 @@ class OpenView: UIView {
         }
     }
     var collectionViewHeightCons: NSLayoutConstraint?
+    var selectedIndexItemList: [IndexItem] = []
         
     
     // MARK: View
@@ -169,6 +170,13 @@ extension OpenView: UICollectionViewDelegate, UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ToggleCVCell", for: indexPath) as! ToggleCVCell
         cell.indexItem = indexItemList[indexPath.row]
         cell.delegate = self
+        
+        for selectedIndexItem in selectedIndexItemList {
+            if indexItemList[indexPath.row].index == selectedIndexItem.index {
+                cell.apply(isApplied: true)
+            }
+        }
+        
         return cell
     }
 }

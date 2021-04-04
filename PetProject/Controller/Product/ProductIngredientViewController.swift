@@ -37,6 +37,7 @@ class ProductIngredientViewController: UIViewController {
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -595,13 +596,13 @@ class ProductIngredientViewController: UIViewController {
         guard let fnPhos = product.fnPhos else { return }
         guard let fnMois = product.fnMois else { return }
         
-        let AAFCOProt = 19.8
-        let AAFCOFat = 19.8
-        let AAFCOFibe = 19.8
-        let AAFCOAsh = 19.8
-        let AAFCOCalc = 19.8
-        let AAFCOPhos = 19.8
-        let AAFCOMois = 19.8
+        let AAFCOProt = 18
+        let AAFCOFat = 5.5
+        let AAFCOFibe = 0
+        let AAFCOAsh = 0
+        let AAFCOCalc = 0.5
+        let AAFCOPhos = 0.4
+        let AAFCOMois = 0
         
         graphProtLabel.text = "\(String(fnProt))%"
         graphAAFCOProtLabel.text = "\(String(AAFCOProt))%"

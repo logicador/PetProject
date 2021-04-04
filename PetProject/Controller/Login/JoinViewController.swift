@@ -19,6 +19,7 @@ class JoinViewController: UIViewController {
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -91,51 +92,41 @@ class JoinViewController: UIViewController {
     
     lazy var agree1Label: UILabel = {
         let label = UILabel()
-        label.text = "약관동의1"
+        label.text = "서비스 이용약관"
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     lazy var agreeView1: AgreeView = {
-        let av = AgreeView(title: "서비스 이용 동의", action: "AGREE_1")
+        let av = AgreeView(title: "서비스 이용 동의", action: "agreement")
         av.delegate = self
         return av
     }()
     lazy var agreeView2: AgreeView = {
-        let av = AgreeView(title: "개인정보 수집 및 이용", action: "AGREE_2")
-        av.delegate = self
-        return av
-    }()
-    lazy var agreeView3: AgreeView = {
-        let av = AgreeView(title: "개인정보 제3자 제공 동의", action: "AGREE_3")
+        let av = AgreeView(title: "서비스 약관 동의", action: "agreement")
         av.delegate = self
         return av
     }()
     
     lazy var agree2Label: UILabel = {
         let label = UILabel()
-        label.text = "약관동의2"
+        label.text = "개인정보 처리방침"
         label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     lazy var agreeView4: AgreeView = {
-        let av = AgreeView(title: "개인정보수집 / 이용동의", action: "AGREE_4")
+        let av = AgreeView(title: "개인정보수집/이용 동의", action: "privacy")
         av.delegate = self
         return av
     }()
     lazy var agreeView5: AgreeView = {
-        let av = AgreeView(title: "고유식별 정보처리 동의", action: "AGREE_5")
+        let av = AgreeView(title: "개인정보관리 동의", action: "privacy")
         av.delegate = self
         return av
     }()
     lazy var agreeView6: AgreeView = {
-        let av = AgreeView(title: "통신사 이용약관 동의", action: "AGREE_6")
-        av.delegate = self
-        return av
-    }()
-    lazy var agreeView7: AgreeView = {
-        let av = AgreeView(title: "본인 확인 서비스 이용약관 동의", action: "AGREE_7")
+        let av = AgreeView(title: "개인정보위탁처리 동의", action: "privacy")
         av.delegate = self
         return av
     }()
@@ -190,7 +181,7 @@ class JoinViewController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "뒤로", style: .plain, target: self, action: #selector(backTapped))
     
-        navigationController?.navigationBar.tintColor = .mainColor
+//        navigationController?.navigationBar.tintColor = .mainColor
         
         configureView()
         
@@ -271,13 +262,9 @@ class JoinViewController: UIViewController {
         agreeView2.topAnchor.constraint(equalTo: agreeView1.bottomAnchor).isActive = true
         agreeView2.leadingAnchor.constraint(equalTo: agreeContentView.leadingAnchor, constant: SPACE_XS).isActive = true
         agreeView2.trailingAnchor.constraint(equalTo: agreeContentView.trailingAnchor, constant: -SPACE_XS).isActive = true
-        agreeContentView.addSubview(agreeView3)
-        agreeView3.topAnchor.constraint(equalTo: agreeView2.bottomAnchor).isActive = true
-        agreeView3.leadingAnchor.constraint(equalTo: agreeContentView.leadingAnchor, constant: SPACE_XS).isActive = true
-        agreeView3.trailingAnchor.constraint(equalTo: agreeContentView.trailingAnchor, constant: -SPACE_XS).isActive = true
         
         agreeContentView.addSubview(agree2Label)
-        agree2Label.topAnchor.constraint(equalTo: agreeView3.bottomAnchor, constant: SPACE_XXL).isActive = true
+        agree2Label.topAnchor.constraint(equalTo: agreeView2.bottomAnchor, constant: SPACE_XXL).isActive = true
         agree2Label.leadingAnchor.constraint(equalTo: agreeContentView.leadingAnchor).isActive = true
         
         agreeContentView.addSubview(agreeView4)
@@ -292,13 +279,9 @@ class JoinViewController: UIViewController {
         agreeView6.topAnchor.constraint(equalTo: agreeView5.bottomAnchor).isActive = true
         agreeView6.leadingAnchor.constraint(equalTo: agreeContentView.leadingAnchor, constant: SPACE_XS).isActive = true
         agreeView6.trailingAnchor.constraint(equalTo: agreeContentView.trailingAnchor, constant: -SPACE_XS).isActive = true
-        agreeContentView.addSubview(agreeView7)
-        agreeView7.topAnchor.constraint(equalTo: agreeView6.bottomAnchor).isActive = true
-        agreeView7.leadingAnchor.constraint(equalTo: agreeContentView.leadingAnchor, constant: SPACE_XS).isActive = true
-        agreeView7.trailingAnchor.constraint(equalTo: agreeContentView.trailingAnchor, constant: -SPACE_XS).isActive = true
         
         agreeContentView.addSubview(allAgreeTopLine)
-        allAgreeTopLine.topAnchor.constraint(equalTo: agreeView7.bottomAnchor, constant: SPACE_XXL).isActive = true
+        allAgreeTopLine.topAnchor.constraint(equalTo: agreeView6.bottomAnchor, constant: SPACE_XXL).isActive = true
         allAgreeTopLine.leadingAnchor.constraint(equalTo: agreeContentView.leadingAnchor).isActive = true
         allAgreeTopLine.trailingAnchor.constraint(equalTo: agreeContentView.trailingAnchor).isActive = true
         
@@ -347,12 +330,10 @@ class JoinViewController: UIViewController {
         var agreeCnt = 0
         agreeCnt += agreeView1.isAgree ? 1 : 0
         agreeCnt += agreeView2.isAgree ? 1 : 0
-        agreeCnt += agreeView3.isAgree ? 1 : 0
         agreeCnt += agreeView4.isAgree ? 1 : 0
         agreeCnt += agreeView5.isAgree ? 1 : 0
         agreeCnt += agreeView6.isAgree ? 1 : 0
-        agreeCnt += agreeView7.isAgree ? 1 : 0
-        if agreeCnt < 7 {
+        if agreeCnt < 5 {
             joinButton.setActive(isActive: false)
             return
         }
@@ -375,11 +356,9 @@ class JoinViewController: UIViewController {
         
         agreeView1.setAgree(isAgree: isAgree)
         agreeView2.setAgree(isAgree: isAgree)
-        agreeView3.setAgree(isAgree: isAgree)
         agreeView4.setAgree(isAgree: isAgree)
         agreeView5.setAgree(isAgree: isAgree)
         agreeView6.setAgree(isAgree: isAgree)
-        agreeView7.setAgree(isAgree: isAgree)
         
         checkIsValid()
     }
@@ -401,7 +380,9 @@ extension JoinViewController: AgreeViewProtocol {
     func openAgree(action: String) {
         dismissKeyboard()
         
-        print("openAgree", action)
+        let termsWebVC = TermsWebViewController()
+        termsWebVC.terms = action
+        navigationController?.pushViewController(termsWebVC, animated: true)
     }
     
     func agree(isAgree: Bool) {
@@ -411,12 +392,10 @@ extension JoinViewController: AgreeViewProtocol {
             var agreeCnt = 0
             agreeCnt += agreeView1.isAgree ? 1 : 0
             agreeCnt += agreeView2.isAgree ? 1 : 0
-            agreeCnt += agreeView3.isAgree ? 1 : 0
             agreeCnt += agreeView4.isAgree ? 1 : 0
             agreeCnt += agreeView5.isAgree ? 1 : 0
             agreeCnt += agreeView6.isAgree ? 1 : 0
-            agreeCnt += agreeView7.isAgree ? 1 : 0
-            if agreeCnt == 7 { allAgreeImageView.tintColor = .mainColor }
+            if agreeCnt == 5 { allAgreeImageView.tintColor = .mainColor }
             
         } else {
             if allAgreeImageView.tintColor == UIColor.mainColor {

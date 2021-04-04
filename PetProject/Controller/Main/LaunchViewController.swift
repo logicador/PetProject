@@ -16,12 +16,12 @@ class LaunchViewController: UIViewController {
     
     
     // MARK: View
-    lazy var label: UILabel = {
-        let label = UILabel()
-        label.text = "Launch Screen"
-        label.font = .boldSystemFont(ofSize: 32)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var logoTextImageView: UIImageView = {
+        let image = UIImage(named: "logo_text.png")
+        let iv = UIImageView(image: image)
+        iv.contentMode = .scaleAspectFit
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
     }()
     
     
@@ -47,22 +47,22 @@ class LaunchViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(500), execute: {
             if isLogined {
                 let user = self.app.getUser()
-                
+
                 guard let type = user.type else {
                     self.changeRootViewController(rootViewController: LoginViewController())
                     return
                 }
-                
+
                 if type == "KAKAO" || type == "NAVER" || type == "APPLE" {
                     guard let socialId = user.socialId else {
                         self.changeRootViewController(rootViewController: LoginViewController())
                         return
                     }
-                    
+
                     self.loginRequest.fetch(vc: self, paramDict: ["type": type, "socialId": socialId])
                     return
                 }
-                
+
                 guard let email = user.email else {
                     self.changeRootViewController(rootViewController: LoginViewController())
                     return
@@ -71,9 +71,9 @@ class LaunchViewController: UIViewController {
                     self.changeRootViewController(rootViewController: LoginViewController())
                     return
                 }
-                
+
                 self.loginRequest.fetch(vc: self, paramDict: ["type": type, "email": email, "password": password])
-                
+
             } else {
                 self.changeRootViewController(rootViewController: LoginViewController())
             }
@@ -83,9 +83,10 @@ class LaunchViewController: UIViewController {
     
     // MARK: Function
     func configureView() {
-        view.addSubview(label)
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        view.addSubview(logoTextImageView)
+        logoTextImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoTextImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        logoTextImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: CONTENTS_RATIO_XXXXXXXS).isActive = true
     }
 }
 

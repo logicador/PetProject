@@ -112,7 +112,7 @@ class GetPetIngredientRequest: HttpRequest {
                 var weakDiseaseList: [Disease] = []
                 
                 for resFood in resWarningFoodList {
-                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, desc: resFood.f_desc, nutrientList: [])
+                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, descShort: resFood.f_desc_short, desc: resFood.f_desc, thumbnail: resFood.f_thumbnail, edible: resFood.f_edible, nutrientList: [])
                     warningFoodList.append(food)
                 }
                 for resNutrient in resWarningNutrientList {
@@ -121,7 +121,7 @@ class GetPetIngredientRequest: HttpRequest {
                 }
                 
                 for resFood in resGoodFoodList {
-                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, desc: resFood.f_desc, nutrientList: [])
+                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, descShort: resFood.f_desc_short, desc: resFood.f_desc, thumbnail: resFood.f_thumbnail, edible: resFood.f_edible, nutrientList: [])
                     goodFoodList.append(food)
                 }
                 for resNutrient in resGoodNutrientList {
@@ -130,7 +130,7 @@ class GetPetIngredientRequest: HttpRequest {
                 }
                 
                 for resFood in resSimilarGoodFoodList {
-                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, desc: resFood.f_desc, nutrientList: [])
+                    let food = Food(id: resFood.f_id, fc1Id: resFood.f_fc1_id, fc2Id: resFood.f_fc2_id, name: resFood.f_name, descShort: resFood.f_desc_short, desc: resFood.f_desc, thumbnail: resFood.f_thumbnail, edible: resFood.f_edible, nutrientList: [])
                     similarGoodFoodList.append(food)
                 }
                 for resNutrient in resSimilarGoodNutrientList {
@@ -139,7 +139,14 @@ class GetPetIngredientRequest: HttpRequest {
                 }
                 
                 for resWeakDisease in resWeakDiseaseList {
-                    let disease = Disease(id: resWeakDisease.d_id, bpId: resWeakDisease.d_bp_id, name: resWeakDisease.d_name, reason: resWeakDisease.d_reason, management: resWeakDisease.d_management, operation: resWeakDisease.d_operation, cnt: resWeakDisease.cnt)
+                    var symptomNameList: [String] = []
+                    if let symptomNames = resWeakDisease.symptomNames {
+                        let splittedSymptomNameList = symptomNames.split(separator: "|")
+                        for splittedSymptomName in splittedSymptomNameList {
+                            symptomNameList.append(String(splittedSymptomName))
+                        }
+                    }
+                    let disease = Disease(id: resWeakDisease.d_id, bpId: resWeakDisease.d_bp_id, name: resWeakDisease.d_name, reason: resWeakDisease.d_reason, management: resWeakDisease.d_management, operation: resWeakDisease.d_operation, cnt: resWeakDisease.cnt, symptomNameList: symptomNameList)
                     weakDiseaseList.append(disease)
                 }
                 

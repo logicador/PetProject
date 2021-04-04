@@ -8,9 +8,15 @@
 import UIKit
 
 
+protocol ProductIngredientViewProtocol {
+    func selectIngredient(nutrient: Nutrient?, food: Food?)
+}
+
+
 class ProductIngredientView: UIView {
     
     // MARK: Property
+    var delegate: ProductIngredientViewProtocol?
     var nutrient: Nutrient? {
         didSet {
             guard let nutrient = self.nutrient else { return }
@@ -24,7 +30,7 @@ class ProductIngredientView: UIView {
             guard let food = self.food else { return }
             
             nameLabel.text = food.name
-            descLabel.text = food.desc
+            descLabel.text = food.descShort
         }
     }
     
@@ -69,6 +75,8 @@ class ProductIngredientView: UIView {
         configureView()
         
         translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selfTapped)))
     }
     
     required init?(coder: NSCoder) {
@@ -94,5 +102,10 @@ class ProductIngredientView: UIView {
         dotView.centerYAnchor.constraint(equalTo: nameLabel.centerYAnchor).isActive = true
         dotView.widthAnchor.constraint(equalToConstant: 8).isActive = true
         dotView.heightAnchor.constraint(equalToConstant: 8).isActive = true
+    }
+    
+    // MARK: Function - @OBJC
+    @objc func selfTapped() {
+        delegate?.selectIngredient(nutrient: nutrient, food: food)
     }
 }

@@ -17,6 +17,7 @@ protocol PetHealthViewControllerProtocol {
 class PetHealthViewController: UIViewController {
     
     // MARK: Property
+    let app = App()
     var delegate: PetHealthViewControllerProtocol?
     var inoculationKindCollectionViewHeightCons: NSLayoutConstraint?
     var inoculationList: [Inoculation] = []
@@ -24,12 +25,49 @@ class PetHealthViewController: UIViewController {
     let selectBcsVC = SelectBcsViewController()
     var selectedBcs: Bcs?
     let petEtcVC = PetEtcViewController()
+    let getPetInoculationsRequest = GetPetInoculationsRequest()
     var selectedInoculationList: [Inoculation] = []
+    var isEditMode: Bool = false {
+        didSet {
+            if isEditMode {
+                let pet = app.getPet()
+                weightPetInputView.textField.text = String(pet.weight)
+                selectedBcs = Bcs(step: pet.bcsStep, visually: "", touch: "")
+                bcsPetInputView.textField.text = "\(pet.bcsStep)단계"
+                
+                if pet.neuter == "Y" {
+                    neuterYButton.setSelect(isSelected: true)
+                } else if pet.neuter == "N" {
+                    neuterNButton.setSelect(isSelected: true)
+                } else {
+                    neuterDButton.setSelect(isSelected: true)
+                }
+                
+                if pet.inoculation == "Y" {
+                    inoculationKindContainerView.isHidden = false
+                    inoculationYButton.setSelect(isSelected: true)
+                    
+                    if let inoculationText = pet.inoculationText {
+                        inoculationKindEtcCheckView.backgroundColor = .mainColor
+                        inoculationKindEtcTextField.text = inoculationText
+                    }
+                    
+                } else if pet.inoculation == "N" {
+                    inoculationNButton.setSelect(isSelected: true)
+                } else {
+                    inoculationDButton.setSelect(isSelected: true)
+                }
+                
+                nextButton.setActive(isActive: true)
+            }
+        }
+    }
     
     
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -273,16 +311,19 @@ class PetHealthViewController: UIViewController {
         getInoculationsRequest.delegate = self
         selectBcsVC.delegate = self
         petEtcVC.delegate = self
+        getPetInoculationsRequest.delegate = self
+        
+        petEtcVC.isEditMode = isEditMode
         
         getInoculationsRequest.fetch(vc: self, paramDict: [:])
         
         // MARK: For DEV_DEBUG
-        weightPetInputView.textField.text = "6.24"
-        bcsPetInputView.textField.text = "1단계"
-        selectedBcs = Bcs(step: 1, visually: "갈비뼈, 요추, 골반뼈가 모두 겉으로 드러나고, 지방과 근육이 없는 게 보임", touch: "갈비뼈, 요추, 골반뼈가 모두 겉으로 드러나고, 지방과 근육이 없는 게 보임")
-        neuterYButton.setSelect(isSelected: true)
-        inoculationNButton.setSelect(isSelected: true)
-        nextButton.setActive(isActive: true)
+//        weightPetInputView.textField.text = "6.24"
+//        bcsPetInputView.textField.text = "1단계"
+//        selectedBcs = Bcs(step: 1, visually: "갈비뼈, 요추, 골반뼈가 모두 겉으로 드러나고, 지방과 근육이 없는 게 보임", touch: "갈비뼈, 요추, 골반뼈가 모두 겉으로 드러나고, 지방과 근육이 없는 게 보임")
+//        neuterYButton.setSelect(isSelected: true)
+//        inoculationNButton.setSelect(isSelected: true)
+//        nextButton.setActive(isActive: true)
     }
     
     
@@ -504,7 +545,7 @@ class PetHealthViewController: UIViewController {
         nextButton.setActive(isActive: true)
     }
     
-    func addPet(thumb: UIImage?, name: String, birth: String, breed: Breed, gender: String) {
+    func addPet(thumb: UIImage?, name: String, birth: String, breed: Breed, gender: String, isThumbnailChanged: Bool) {
         var weight: Double?
         guard let _weight = weightPetInputView.textField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         if !_weight.isEmpty { weight = Double(_weight) }
@@ -513,14 +554,14 @@ class PetHealthViewController: UIViewController {
         let inoculation = (inoculationYButton.backgroundColor == .mainColor) ? "Y" : ((inoculationNButton.backgroundColor == .mainColor) ? "N" : "D")
         guard let inoculationKindEtcText = inoculationKindEtcTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
     
-        petEtcVC.addPet(thumb: thumb, name: name, birth: birth, breed: breed, gender: gender, weight: weight, bcs: bcs, neuter: neuter, inoculation: inoculation, inoculationList: selectedInoculationList, inoculationKindEtcText: inoculationKindEtcText)
+        petEtcVC.addPet(thumb: thumb, name: name, birth: birth, breed: breed, gender: gender, weight: weight, bcs: bcs, neuter: neuter, inoculation: inoculation, inoculationList: selectedInoculationList, inoculationKindEtcText: inoculationKindEtcText, isThumbnailChanged: isThumbnailChanged)
     }
     
-    override func viewDidLayoutSubviews() {
-        inoculationKindCollectionViewHeightCons?.isActive = false
-        inoculationKindCollectionViewHeightCons = inoculationKindCollectionView.heightAnchor.constraint(equalToConstant: inoculationKindCollectionView.contentSize.height)
-        inoculationKindCollectionViewHeightCons?.isActive = true
-    }
+//    override func viewDidLayoutSubviews() {
+//        inoculationKindCollectionViewHeightCons?.isActive = false
+//        inoculationKindCollectionViewHeightCons = inoculationKindCollectionView.heightAnchor.constraint(equalToConstant: inoculationKindCollectionView.contentSize.height)
+//        inoculationKindCollectionViewHeightCons?.isActive = true
+//    }
     
     // MARK: Function - @OBJC
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -646,6 +687,19 @@ extension PetHealthViewController: GetInoculationsRequestProtocol {
             inoculationKindCollectionView.reloadData()
             
             inoculationKindEtcTextContainerView.leadingAnchor.constraint(equalTo: inoculationKindEtcContainerView.leadingAnchor, constant: inoculationKindEtcLabel.frame.size.width + (SPACE_S * 2) + 28).isActive = true
+            
+            inoculationKindCollectionView.performBatchUpdates(nil, completion: { (_) in
+                self.inoculationKindCollectionViewHeightCons?.isActive = false
+                self.inoculationKindCollectionViewHeightCons = self.inoculationKindCollectionView.heightAnchor.constraint(equalToConstant: self.inoculationKindCollectionView.contentSize.height)
+                self.inoculationKindCollectionViewHeightCons?.isActive = true
+                
+                if self.isEditMode {
+                    let pet = self.app.getPet()
+                    if pet.inoculation == "Y" {
+                        self.getPetInoculationsRequest.fetch(vc: self, paramDict: ["peId": String(pet.id)])
+                    }
+                }
+            })
         }
     }
 }
@@ -682,6 +736,27 @@ extension PetHealthViewController: InoculationCVCellProtocol {
                 if selectedInoculation.id == inoculation.id {
                     selectedInoculationList.remove(at: i)
                     break
+                }
+            }
+        }
+    }
+}
+
+// MARK: HTTP - GetPetInoculations
+extension PetHealthViewController: GetPetInoculationsRequestProtocol {
+    func response(inoculationList: [Inoculation]?, getPetInoculations status: String) {
+        print("[HTTP RES]", getPetInoculationsRequest.apiUrl, status)
+        
+        if status == "OK" {
+            guard let inoculationList = inoculationList else { return }
+            selectedInoculationList = inoculationList
+            
+            for (i, inoculation) in self.inoculationList.enumerated() {
+                for selectedInoculation in selectedInoculationList {
+                    if inoculation.id == selectedInoculation.id {
+                        let cell = inoculationKindCollectionView.cellForItem(at: IndexPath(row: i, section: 0)) as! InoculationCVCell
+                        cell.check(isChecked: true)
+                    }
                 }
             }
         }

@@ -21,6 +21,7 @@ class NoticeView: UIView {
         didSet {
             guard let notice = self.notice else { return }
             titleLabel.text = notice.title
+            contentsLabel.text = notice.contents
             dateLabel.text = String(notice.createdDate.split(separator: " ")[0])
         }
     }
@@ -29,7 +30,14 @@ class NoticeView: UIView {
     // MARK: View
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 18)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    lazy var contentsLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -68,9 +76,15 @@ class NoticeView: UIView {
         addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: SPACE).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        
+        addSubview(contentsLabel)
+        contentsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
+        contentsLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        contentsLabel.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         
         addSubview(dateLabel)
-        dateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
+        dateLabel.topAnchor.constraint(equalTo: contentsLabel.bottomAnchor, constant: SPACE_XS).isActive = true
         dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         dateLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -SPACE).isActive = true
         

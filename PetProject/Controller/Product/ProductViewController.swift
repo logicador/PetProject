@@ -12,6 +12,14 @@ import SDWebImage
 class ProductViewController: UIViewController {
     
     // MARK: Property
+    let app = App()
+    let getProductRequest = GetProductRequest()
+    var pId: Int? {
+        didSet {
+            guard let pId = self.pId else { return }
+            getProductRequest.fetch(vc: self, paramDict: ["pId": String(pId)])
+        }
+    }
     var product: Product? {
         didSet {
             guard let product = self.product else { return }
@@ -30,7 +38,7 @@ class ProductViewController: UIViewController {
             infoDetailManufacturerLabel.text = product.manufacturer
             infoDetailPackingVolumeLabel.text = product.packingVolume
             infoDetailRecommendLabel.text = product.recommend
-            infoScoreLabel.text = " \(String(product.avgScore)) "
+            infoScoreLabel.text = " \(String(format: "%.1f", product.avgScore)) "
             infoScoreCntLabel.text = "(\(String(product.reviewCnt)))"
             // Set Detail Images
             for detailImage in product.detailImageList {
@@ -50,10 +58,18 @@ class ProductViewController: UIViewController {
                         let imgHeight = img.size.height
                         
                         let width = SCREEN_WIDTH * CONTENTS_RATIO
-                        let ratio = (width > imgWidth) ? width / imgWidth : imgWidth / width
-                        let height = imgHeight * ratio
                         
-                        iv.heightAnchor.constraint(equalToConstant: height).isActive = true
+                        if imgHeight > imgWidth {
+                            let ratio = (width > imgWidth) ? width / imgWidth : imgWidth / width
+                            let height = imgHeight * ratio
+                            
+                            iv.heightAnchor.constraint(equalToConstant: height).isActive = true
+                        } else {
+                            let ratio = width / imgWidth
+                            let height = imgHeight * ratio
+                            
+                            iv.heightAnchor.constraint(equalToConstant: height).isActive = true
+                        }
                     })
                 }
             }
@@ -133,6 +149,7 @@ class ProductViewController: UIViewController {
     // MARK: View - Info
     lazy var infoScrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -324,6 +341,8 @@ class ProductViewController: UIViewController {
         navigationItem.title = "제품 정보"
         
         configureView()
+        
+        getProductRequest.delegate = self
     }
     
     
@@ -502,6 +521,7 @@ class ProductViewController: UIViewController {
         infoDetailContainerView.addSubview(infoDetailRecommendLabel)
         infoDetailRecommendLabel.centerYAnchor.constraint(equalTo: infoDetailRecommendTitleLabel.centerYAnchor).isActive = true
         infoDetailRecommendLabel.leadingAnchor.constraint(equalTo: infoDetailRecommendTitleLabel.trailingAnchor, constant: SCREEN_WIDTH * (1 - CONTENTS_RATIO)).isActive = true
+        infoDetailRecommendLabel.trailingAnchor.constraint(equalTo: infoDetailContainerView.trailingAnchor).isActive = true
         
         infoStackView.addArrangedSubview(infoDetailImageStackView)
         infoDetailImageStackView.centerXAnchor.constraint(equalTo: infoStackView.centerXAnchor).isActive = true
@@ -515,6 +535,19 @@ class ProductViewController: UIViewController {
             
         } else if sender.tag == 3 {
             present(UINavigationController(rootViewController: productReviewVC), animated: true, completion: nil)
+        }
+    }
+}
+
+
+// MARK: HTTP - GetProduct
+extension ProductViewController: GetProductRequestProtocol {
+    func response(product: Product?, getProduct status: String) {
+        print("[HTTP RES]", getProductRequest.apiUrl, status)
+        
+        if status == "OK" {
+            guard let product = product else { return }
+            self.product = product
         }
     }
 }

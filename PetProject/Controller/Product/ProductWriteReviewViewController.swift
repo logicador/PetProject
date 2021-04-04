@@ -51,6 +51,7 @@ class ProductWriteReviewViewController: UIViewController {
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -309,7 +310,7 @@ class ProductWriteReviewViewController: UIViewController {
         
         navigationItem.title = "리뷰쓰기"
         
-        isModalInPresentation = true
+//        isModalInPresentation = true
         
         configureView()
         
@@ -459,25 +460,25 @@ class ProductWriteReviewViewController: UIViewController {
         sideLabel.leadingAnchor.constraint(equalTo: sideContainerView.leadingAnchor).isActive = true
         
         // MARK: ConfigureView - Title
-        containerStackView.addArrangedSubview(titleContainerView)
-        titleContainerView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor).isActive = true
-        titleContainerView.trailingAnchor.constraint(equalTo: containerStackView.trailingAnchor).isActive = true
-        
-        titleContainerView.addSubview(titleTitleLabel)
-        titleTitleLabel.topAnchor.constraint(equalTo: titleContainerView.topAnchor).isActive = true
-        titleTitleLabel.leadingAnchor.constraint(equalTo: titleContainerView.leadingAnchor).isActive = true
-        
-        titleContainerView.addSubview(titleTextContainerView)
-        titleTextContainerView.topAnchor.constraint(equalTo: titleTitleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
-        titleTextContainerView.leadingAnchor.constraint(equalTo: titleContainerView.leadingAnchor).isActive = true
-        titleTextContainerView.trailingAnchor.constraint(equalTo: titleContainerView.trailingAnchor).isActive = true
-        titleTextContainerView.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor).isActive = true
-        
-        titleTextContainerView.addSubview(titleTextField)
-        titleTextField.topAnchor.constraint(equalTo: titleTextContainerView.topAnchor, constant: SPACE_XS).isActive = true
-        titleTextField.leadingAnchor.constraint(equalTo: titleTextContainerView.leadingAnchor, constant: SPACE_S).isActive = true
-        titleTextField.trailingAnchor.constraint(equalTo: titleTextContainerView.trailingAnchor, constant: -SPACE_S).isActive = true
-        titleTextField.bottomAnchor.constraint(equalTo: titleTextContainerView.bottomAnchor, constant: -SPACE_XS).isActive = true
+//        containerStackView.addArrangedSubview(titleContainerView)
+//        titleContainerView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor).isActive = true
+//        titleContainerView.trailingAnchor.constraint(equalTo: containerStackView.trailingAnchor).isActive = true
+//
+//        titleContainerView.addSubview(titleTitleLabel)
+//        titleTitleLabel.topAnchor.constraint(equalTo: titleContainerView.topAnchor).isActive = true
+//        titleTitleLabel.leadingAnchor.constraint(equalTo: titleContainerView.leadingAnchor).isActive = true
+//
+//        titleContainerView.addSubview(titleTextContainerView)
+//        titleTextContainerView.topAnchor.constraint(equalTo: titleTitleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
+//        titleTextContainerView.leadingAnchor.constraint(equalTo: titleContainerView.leadingAnchor).isActive = true
+//        titleTextContainerView.trailingAnchor.constraint(equalTo: titleContainerView.trailingAnchor).isActive = true
+//        titleTextContainerView.bottomAnchor.constraint(equalTo: titleContainerView.bottomAnchor).isActive = true
+//
+//        titleTextContainerView.addSubview(titleTextField)
+//        titleTextField.topAnchor.constraint(equalTo: titleTextContainerView.topAnchor, constant: SPACE_XS).isActive = true
+//        titleTextField.leadingAnchor.constraint(equalTo: titleTextContainerView.leadingAnchor, constant: SPACE_S).isActive = true
+//        titleTextField.trailingAnchor.constraint(equalTo: titleTextContainerView.trailingAnchor, constant: -SPACE_S).isActive = true
+//        titleTextField.bottomAnchor.constraint(equalTo: titleTextContainerView.bottomAnchor, constant: -SPACE_XS).isActive = true
         
         // MARK: ConfigureView - Adv
         containerStackView.addArrangedSubview(advContainerView)
@@ -571,13 +572,13 @@ class ProductWriteReviewViewController: UIViewController {
         
         var paramDict: [String: String] = [:]
         
-        paramDict["peId"] = String(app.getUserPetId())
+        paramDict["peId"] = String(app.getPetId())
         paramDict["pId"] = String(pId)
         paramDict["pala"] = String(pala)
         paramDict["bene"] = String(bene)
         paramDict["cost"] = String(cost)
         paramDict["side"] = side
-        paramDict["title"] = _title
+//        paramDict["title"] = _title
         paramDict["descAdv"] = descAdv
         paramDict["descDisAdv"] = descDisAdv
         paramDict["imageNameList"] = imageNameList.description
@@ -616,21 +617,21 @@ class ProductWriteReviewViewController: UIViewController {
             return
         }
         
-        guard let t = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-        _title = t
-        
-        if _title.isEmpty {
-            let alert = UIAlertController(title: nil, message: "제목을 입력해주세요.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "닫기", style: .cancel))
-            present(alert, animated: true)
-            return
-        }
-        if _title.count < 1 || (_title.count > 20 || _title.count < 5) {
-            let alert = UIAlertController(title: nil, message: "제목은 5-20자 까지 입력 가능합니다.\n\n\(_title.count)/20", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "닫기", style: .cancel))
-            present(alert, animated: true)
-            return
-        }
+//        guard let t = titleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+//        _title = t
+//
+//        if _title.isEmpty {
+//            let alert = UIAlertController(title: nil, message: "제목을 입력해주세요.", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "닫기", style: .cancel))
+//            present(alert, animated: true)
+//            return
+//        }
+//        if _title.count < 1 || (_title.count > 20 || _title.count < 5) {
+//            let alert = UIAlertController(title: nil, message: "제목은 5-20자 까지 입력 가능합니다.\n\n\(_title.count)/20", preferredStyle: .alert)
+//            alert.addAction(UIAlertAction(title: "닫기", style: .cancel))
+//            present(alert, animated: true)
+//            return
+//        }
         
         descAdv = advTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
         descDisAdv = disAdvTextView.text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -656,7 +657,7 @@ class ProductWriteReviewViewController: UIViewController {
             return
         }
         
-        side = (sideImageView.tintColor == .mainColor) ? "Y" : "N"
+        side = (sideImageView.tintColor == .systemRed) ? "Y" : "N"
         
         for v in imageStackView.subviews {
             let iv = v as! UIImageView
@@ -708,7 +709,7 @@ class ProductWriteReviewViewController: UIViewController {
     @objc func sideTapped() {
         dismissKeyboard()
         
-        sideImageView.tintColor = (sideImageView.tintColor == .mainColor) ? .systemGray3 : .mainColor
+        sideImageView.tintColor = (sideImageView.tintColor == .systemRed) ? .systemGray3 : .systemRed
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {

@@ -8,9 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		37DA225811553D5F37781B97 /* Pods_PetProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 874C6F25D6B12AB4D7276110 /* Pods_PetProject.framework */; };
+		572FEBD425DD12EB00BC4D66 /* GetSymptomsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBD325DD12EB00BC4D66 /* GetSymptomsRequest.swift */; };
+		572FEBD725DD132600BC4D66 /* Symptom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBD625DD132600BC4D66 /* Symptom.swift */; };
+		572FEBDA25DD17C100BC4D66 /* SymptomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBD925DD17C100BC4D66 /* SymptomViewController.swift */; };
+		572FEBDD25DD1F7800BC4D66 /* DiseaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBDC25DD1F7800BC4D66 /* DiseaseView.swift */; };
+		572FEBE025DD21A700BC4D66 /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBDF25DD21A700BC4D66 /* FoodView.swift */; };
+		572FEBE325DD265E00BC4D66 /* GetFoodsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBE225DD265E00BC4D66 /* GetFoodsRequest.swift */; };
+		572FEBE625DD2B8800BC4D66 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBE525DD2B8800BC4D66 /* FoodViewController.swift */; };
+		572FEBE925DD2B9100BC4D66 /* DiseaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBE825DD2B9100BC4D66 /* DiseaseViewController.swift */; };
+		572FEBF025DD35D700BC4D66 /* GetFoodDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FEBEF25DD35D700BC4D66 /* GetFoodDetailRequest.swift */; };
+		5738C07925F751CE00E304EB /* logo_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 5738C07825F751CE00E304EB /* logo_text.png */; };
+		5738C07C25F751E200E304EB /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5738C07B25F751E200E304EB /* logo.png */; };
 		5754501125D6DFD90096D669 /* ProductIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */; };
 		5754501425D6E0560096D669 /* ProductReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5754501325D6E0560096D669 /* ProductReviewViewController.swift */; };
 		5754501725D6E1850096D669 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5754501625D6E1850096D669 /* SettingViewController.swift */; };
+		5756C989260090DE0029170A /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C988260090DE0029170A /* QuestionView.swift */; };
+		5756C98C260091800029170A /* GetQuestionsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C98B260091800029170A /* GetQuestionsRequest.swift */; };
+		5756C98F2600919D0029170A /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C98E2600919D0029170A /* Question.swift */; };
+		5756C9922600969C0029170A /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C9912600969C0029170A /* QuestionDetailViewController.swift */; };
+		5756C995260099070029170A /* RemoveQuestionRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C994260099070029170A /* RemoveQuestionRequest.swift */; };
+		5756C99826009D2D0029170A /* MyReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C99726009D2D0029170A /* MyReviewViewController.swift */; };
+		5756C99B26009E360029170A /* GetUserReviewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C99A26009E360029170A /* GetUserReviewsRequest.swift */; };
+		5756C99E2600AE2C0029170A /* UserReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C99D2600AE2C0029170A /* UserReview.swift */; };
+		5756C9A12600B27C0029170A /* UserReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C9A02600B27C0029170A /* UserReviewView.swift */; };
+		5756C9A42600BB450029170A /* RemoveReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5756C9A32600BB450029170A /* RemoveReviewRequest.swift */; };
+		577E42B3261975DF00EA6928 /* GetBreedCharactersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577E42B2261975DF00EA6928 /* GetBreedCharactersRequest.swift */; };
+		577E42B6261976F800EA6928 /* BreedCharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577E42B5261976F800EA6928 /* BreedCharacterView.swift */; };
+		5781714E25F4CD6200A67C2B /* GetPetInoculationsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781714D25F4CD6200A67C2B /* GetPetInoculationsRequest.swift */; };
+		5781715125F4D21E00A67C2B /* GetPetProductsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781715025F4D21E00A67C2B /* GetPetProductsRequest.swift */; };
+		5781715525F4DB0A00A67C2B /* GetPetDiseasesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781715425F4DB0A00A67C2B /* GetPetDiseasesRequest.swift */; };
+		5781715825F4DC2F00A67C2B /* GetPetFoodCategories2Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5781715725F4DC2F00A67C2B /* GetPetFoodCategories2Request.swift */; };
 		5788231C25D2226C005CBCC9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788231B25D2226C005CBCC9 /* AppDelegate.swift */; };
 		5788231E25D2226C005CBCC9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788231D25D2226C005CBCC9 /* SceneDelegate.swift */; };
 		5788232525D2226C005CBCC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5788232425D2226C005CBCC9 /* Assets.xcassets */; };
@@ -61,6 +88,7 @@
 		5788E2B525D3B3FB008F9EA9 /* FoodCategory1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2B425D3B3FB008F9EA9 /* FoodCategory1.swift */; };
 		5788E2B825D3B535008F9EA9 /* GetFoodCategoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5788E2B725D3B535008F9EA9 /* GetFoodCategoriesRequest.swift */; };
 		578A541725D58DCC002D94F4 /* GetPetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578A541625D58DCC002D94F4 /* GetPetRequest.swift */; };
+		57915D3F2601D9DD004115BC /* GetProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57915D3E2601D9DD004115BC /* GetProductRequest.swift */; };
 		579ABB6725D4F7340094D7EE /* SavePetRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6625D4F7340094D7EE /* SavePetRequest.swift */; };
 		579ABB6A25D4F7980094D7EE /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6925D4F7980094D7EE /* Pet.swift */; };
 		579ABB6D25D4FC770094D7EE /* UploadImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579ABB6C25D4FC770094D7EE /* UploadImageRequest.swift */; };
@@ -99,12 +127,41 @@
 		57E0564225DA351C00588A45 /* ProductAllIngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */; };
 		57E0564625DA77FE00588A45 /* ProductWriteReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */; };
 		57E0564A25DAC1EA00588A45 /* AddReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E0564925DAC1EA00588A45 /* AddReviewRequest.swift */; };
+		57FB4C0325DE04C80078CAAC /* GetDiseaseDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FB4C0225DE04C80078CAAC /* GetDiseaseDetailRequest.swift */; };
+		57FB4C0625DE0FD20078CAAC /* GetSymptomDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FB4C0525DE0FD20078CAAC /* GetSymptomDetailRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		572FEBD325DD12EB00BC4D66 /* GetSymptomsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSymptomsRequest.swift; sourceTree = "<group>"; };
+		572FEBD625DD132600BC4D66 /* Symptom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symptom.swift; sourceTree = "<group>"; };
+		572FEBD925DD17C100BC4D66 /* SymptomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomViewController.swift; sourceTree = "<group>"; };
+		572FEBDC25DD1F7800BC4D66 /* DiseaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseView.swift; sourceTree = "<group>"; };
+		572FEBDF25DD21A700BC4D66 /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		572FEBE225DD265E00BC4D66 /* GetFoodsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodsRequest.swift; sourceTree = "<group>"; };
+		572FEBE525DD2B8800BC4D66 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
+		572FEBE825DD2B9100BC4D66 /* DiseaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiseaseViewController.swift; sourceTree = "<group>"; };
+		572FEBEF25DD35D700BC4D66 /* GetFoodDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodDetailRequest.swift; sourceTree = "<group>"; };
+		5738C07825F751CE00E304EB /* logo_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_text.png; sourceTree = "<group>"; };
+		5738C07B25F751E200E304EB /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductIngredientViewController.swift; sourceTree = "<group>"; };
 		5754501325D6E0560096D669 /* ProductReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductReviewViewController.swift; sourceTree = "<group>"; };
 		5754501625D6E1850096D669 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		5756C988260090DE0029170A /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		5756C98B260091800029170A /* GetQuestionsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetQuestionsRequest.swift; sourceTree = "<group>"; };
+		5756C98E2600919D0029170A /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		5756C9912600969C0029170A /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
+		5756C994260099070029170A /* RemoveQuestionRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveQuestionRequest.swift; sourceTree = "<group>"; };
+		5756C99726009D2D0029170A /* MyReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewViewController.swift; sourceTree = "<group>"; };
+		5756C99A26009E360029170A /* GetUserReviewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserReviewsRequest.swift; sourceTree = "<group>"; };
+		5756C99D2600AE2C0029170A /* UserReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReview.swift; sourceTree = "<group>"; };
+		5756C9A02600B27C0029170A /* UserReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReviewView.swift; sourceTree = "<group>"; };
+		5756C9A32600BB450029170A /* RemoveReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveReviewRequest.swift; sourceTree = "<group>"; };
+		577E42B2261975DF00EA6928 /* GetBreedCharactersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetBreedCharactersRequest.swift; sourceTree = "<group>"; };
+		577E42B5261976F800EA6928 /* BreedCharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedCharacterView.swift; sourceTree = "<group>"; };
+		5781714D25F4CD6200A67C2B /* GetPetInoculationsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetInoculationsRequest.swift; sourceTree = "<group>"; };
+		5781715025F4D21E00A67C2B /* GetPetProductsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetProductsRequest.swift; sourceTree = "<group>"; };
+		5781715425F4DB0A00A67C2B /* GetPetDiseasesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetDiseasesRequest.swift; sourceTree = "<group>"; };
+		5781715725F4DC2F00A67C2B /* GetPetFoodCategories2Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetFoodCategories2Request.swift; sourceTree = "<group>"; };
 		5788231825D2226C005CBCC9 /* PetProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5788231B25D2226C005CBCC9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5788231D25D2226C005CBCC9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -158,6 +215,7 @@
 		5788E2B425D3B3FB008F9EA9 /* FoodCategory1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCategory1.swift; sourceTree = "<group>"; };
 		5788E2B725D3B535008F9EA9 /* GetFoodCategoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodCategoriesRequest.swift; sourceTree = "<group>"; };
 		578A541625D58DCC002D94F4 /* GetPetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPetRequest.swift; sourceTree = "<group>"; };
+		57915D3E2601D9DD004115BC /* GetProductRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetProductRequest.swift; sourceTree = "<group>"; };
 		579ABB6625D4F7340094D7EE /* SavePetRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePetRequest.swift; sourceTree = "<group>"; };
 		579ABB6925D4F7980094D7EE /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		579ABB6C25D4FC770094D7EE /* UploadImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImageRequest.swift; sourceTree = "<group>"; };
@@ -196,6 +254,8 @@
 		57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductAllIngredientViewController.swift; sourceTree = "<group>"; };
 		57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductWriteReviewViewController.swift; sourceTree = "<group>"; };
 		57E0564925DAC1EA00588A45 /* AddReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReviewRequest.swift; sourceTree = "<group>"; };
+		57FB4C0225DE04C80078CAAC /* GetDiseaseDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDiseaseDetailRequest.swift; sourceTree = "<group>"; };
+		57FB4C0525DE0FD20078CAAC /* GetSymptomDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSymptomDetailRequest.swift; sourceTree = "<group>"; };
 		5EC84FD3CFD73140017D6E5E /* Pods-PetProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetProject.release.xcconfig"; path = "Target Support Files/Pods-PetProject/Pods-PetProject.release.xcconfig"; sourceTree = "<group>"; };
 		7D11DD7E17ABF56A99CC8585 /* Pods-PetProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PetProject.debug.xcconfig"; path = "Target Support Files/Pods-PetProject/Pods-PetProject.debug.xcconfig"; sourceTree = "<group>"; };
 		874C6F25D6B12AB4D7276110 /* Pods_PetProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PetProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +273,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		572FEBD125DCF77300BC4D66 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				57D00DD425D68080008F60FB /* ProductViewController.swift */,
+				5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */,
+				57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */,
+				5754501325D6E0560096D669 /* ProductReviewViewController.swift */,
+				57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		5788230F25D2226B005CBCC9 = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +325,8 @@
 		5788233925D225FB005CBCC9 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				5738C07B25F751E200E304EB /* logo.png */,
+				5738C07825F751CE00E304EB /* logo_text.png */,
 				5788238A25D24C90005CBCC9 /* kakao_login_large_wide.png */,
 				57E0563225DA19CB00588A45 /* ingredient_normal.svg */,
 				57E0563625DA1B0C00588A45 /* 0214_펫-56.png */,
@@ -300,6 +374,9 @@
 				57C6063F25D7B50F000368F5 /* Nutrient.swift */,
 				57C6064C25D7FCD9000368F5 /* Review.swift */,
 				57BCA13025DB8EA400993C91 /* Notice.swift */,
+				572FEBD625DD132600BC4D66 /* Symptom.swift */,
+				5756C98E2600919D0029170A /* Question.swift */,
+				5756C99D2600AE2C0029170A /* UserReview.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,20 +388,21 @@
 				5788234025D2263B005CBCC9 /* Main */,
 				5788234125D2264D005CBCC9 /* Login */,
 				5788234225D22653005CBCC9 /* Pet */,
+				572FEBD125DCF77300BC4D66 /* Product */,
 				578823D525D2F057005CBCC9 /* SelectBcsViewController.swift */,
 				5788E29925D39442008F9EA9 /* SelectDiseaseViewController.swift */,
 				5788E29C25D3954F008F9EA9 /* SelectAllergyViewController.swift */,
-				57D00DD425D68080008F60FB /* ProductViewController.swift */,
-				5754501025D6DFD90096D669 /* ProductIngredientViewController.swift */,
-				57E0564125DA351C00588A45 /* ProductAllIngredientViewController.swift */,
-				5754501325D6E0560096D669 /* ProductReviewViewController.swift */,
-				57E0564525DA77FE00588A45 /* ProductWriteReviewViewController.swift */,
 				5754501625D6E1850096D669 /* SettingViewController.swift */,
 				57BCA12725DB8D0D00993C91 /* EditNickNameViewController.swift */,
 				57BCA12A25DB8D7300993C91 /* NoticeListViewController.swift */,
 				57BCA13625DB925C00993C91 /* QuestionViewController.swift */,
 				57BCA13925DB92FB00993C91 /* LeaveViewController.swift */,
 				57BCA14325DBB63F00993C91 /* TermsWebViewController.swift */,
+				572FEBE525DD2B8800BC4D66 /* FoodViewController.swift */,
+				572FEBE825DD2B9100BC4D66 /* DiseaseViewController.swift */,
+				572FEBD925DD17C100BC4D66 /* SymptomViewController.swift */,
+				5756C9912600969C0029170A /* QuestionDetailViewController.swift */,
+				5756C99726009D2D0029170A /* MyReviewViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -346,6 +424,11 @@
 				57BCA13325DB900D00993C91 /* NoticeView.swift */,
 				57BCA14B25DBD36C00993C91 /* DiseaseGraphView.swift */,
 				57BCA14E25DBE2DE00993C91 /* WeakDiseaseView.swift */,
+				572FEBDC25DD1F7800BC4D66 /* DiseaseView.swift */,
+				572FEBDF25DD21A700BC4D66 /* FoodView.swift */,
+				5756C988260090DE0029170A /* QuestionView.swift */,
+				5756C9A02600B27C0029170A /* UserReviewView.swift */,
+				577E42B5261976F800EA6928 /* BreedCharacterView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,6 +488,19 @@
 				57C6064225D7C286000368F5 /* GetProductIngredientRequest.swift */,
 				57C6064925D7E36C000368F5 /* GetProductReviewRequest.swift */,
 				57BCA12D25DB8E6500993C91 /* GetNoticesRequest.swift */,
+				572FEBD325DD12EB00BC4D66 /* GetSymptomsRequest.swift */,
+				572FEBE225DD265E00BC4D66 /* GetFoodsRequest.swift */,
+				572FEBEF25DD35D700BC4D66 /* GetFoodDetailRequest.swift */,
+				57FB4C0225DE04C80078CAAC /* GetDiseaseDetailRequest.swift */,
+				57FB4C0525DE0FD20078CAAC /* GetSymptomDetailRequest.swift */,
+				5781714D25F4CD6200A67C2B /* GetPetInoculationsRequest.swift */,
+				5781715025F4D21E00A67C2B /* GetPetProductsRequest.swift */,
+				5781715425F4DB0A00A67C2B /* GetPetDiseasesRequest.swift */,
+				5781715725F4DC2F00A67C2B /* GetPetFoodCategories2Request.swift */,
+				5756C98B260091800029170A /* GetQuestionsRequest.swift */,
+				5756C99A26009E360029170A /* GetUserReviewsRequest.swift */,
+				57915D3E2601D9DD004115BC /* GetProductRequest.swift */,
+				577E42B2261975DF00EA6928 /* GetBreedCharactersRequest.swift */,
 			);
 			path = Get;
 			sourceTree = "<group>";
@@ -421,6 +517,8 @@
 				57BCA12425DB84A300993C91 /* LeaveRequest.swift */,
 				57BCA13C25DBA3EB00993C91 /* AddQuestionRequest.swift */,
 				57BCA14725DBBC2900993C91 /* EditPetRequest.swift */,
+				5756C994260099070029170A /* RemoveQuestionRequest.swift */,
+				5756C9A32600BB450029170A /* RemoveReviewRequest.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -511,7 +609,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5738C07925F751CE00E304EB /* logo_text.png in Resources */,
 				57E0563325DA19CB00588A45 /* ingredient_normal.svg in Resources */,
+				5738C07C25F751E200E304EB /* logo.png in Resources */,
 				57E0563725DA1B0C00588A45 /* 0214_펫-56.png in Resources */,
 				5788238B25D24C90005CBCC9 /* kakao_login_large_wide.png in Resources */,
 				5788232525D2226C005CBCC9 /* Assets.xcassets in Resources */,
@@ -567,10 +667,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57915D3F2601D9DD004115BC /* GetProductRequest.swift in Sources */,
+				572FEBE025DD21A700BC4D66 /* FoodView.swift in Sources */,
+				572FEBD425DD12EB00BC4D66 /* GetSymptomsRequest.swift in Sources */,
 				579ABB6725D4F7340094D7EE /* SavePetRequest.swift in Sources */,
 				57C6064025D7B50F000368F5 /* Nutrient.swift in Sources */,
+				5756C99E2600AE2C0029170A /* UserReview.swift in Sources */,
 				5788E2AF25D3A6B9008F9EA9 /* ToggleCVCell.swift in Sources */,
 				5788234425D226B0005CBCC9 /* App.swift in Sources */,
+				5756C995260099070029170A /* RemoveQuestionRequest.swift in Sources */,
 				5788239E25D27E29005CBCC9 /* LogoutRequest.swift in Sources */,
 				5788231C25D2226C005CBCC9 /* AppDelegate.swift in Sources */,
 				5788E27925D3745A008F9EA9 /* PetEtcViewController.swift in Sources */,
@@ -582,10 +687,12 @@
 				57C6063A25D7B4C9000368F5 /* GetPetIngredientRequest.swift in Sources */,
 				57BCA13D25DBA3EB00993C91 /* AddQuestionRequest.swift in Sources */,
 				578823D925D2F15B005CBCC9 /* BcsView.swift in Sources */,
+				5781714E25F4CD6200A67C2B /* GetPetInoculationsRequest.swift in Sources */,
 				57C6064A25D7E36C000368F5 /* GetProductReviewRequest.swift in Sources */,
 				5788E28D25D38A12008F9EA9 /* SearchProductViewController.swift in Sources */,
 				57E0564625DA77FE00588A45 /* ProductWriteReviewViewController.swift in Sources */,
 				57C6064625D7C7F0000368F5 /* ProductIngredientView.swift in Sources */,
+				572FEBE325DD265E00BC4D66 /* GetFoodsRequest.swift in Sources */,
 				57BCA12825DB8D0D00993C91 /* EditNickNameViewController.swift in Sources */,
 				57BCA14825DBBC2900993C91 /* EditPetRequest.swift in Sources */,
 				579ABB7325D51E260094D7EE /* HomeViewController.swift in Sources */,
@@ -596,21 +703,31 @@
 				57C6065525D81C41000368F5 /* ReviewView.swift in Sources */,
 				578823D025D2E650005CBCC9 /* Inoculation.swift in Sources */,
 				578823A725D29295005CBCC9 /* ToggleButton.swift in Sources */,
+				572FEBF025DD35D700BC4D66 /* GetFoodDetailRequest.swift in Sources */,
 				57BCA12B25DB8D7300993C91 /* NoticeListViewController.swift in Sources */,
 				57BCA13125DB8EA400993C91 /* Notice.swift in Sources */,
 				5788239825D27539005CBCC9 /* JoinRequest.swift in Sources */,
 				57E0564A25DAC1EA00588A45 /* AddReviewRequest.swift in Sources */,
 				57BCA14425DBB63F00993C91 /* TermsWebViewController.swift in Sources */,
+				572FEBD725DD132600BC4D66 /* Symptom.swift in Sources */,
+				5781715125F4D21E00A67C2B /* GetPetProductsRequest.swift in Sources */,
 				578823B525D2A5B4005CBCC9 /* GetBreedsRequest.swift in Sources */,
 				5788231E25D2226C005CBCC9 /* SceneDelegate.swift in Sources */,
 				5788234E25D226EF005CBCC9 /* HttpRequest.swift in Sources */,
 				5788E29025D38A3B008F9EA9 /* Product.swift in Sources */,
+				5756C99826009D2D0029170A /* MyReviewViewController.swift in Sources */,
 				5788239225D26899005CBCC9 /* ConfirmButton.swift in Sources */,
+				572FEBE925DD2B9100BC4D66 /* DiseaseViewController.swift in Sources */,
+				5756C9A12600B27C0029170A /* UserReviewView.swift in Sources */,
 				578A541725D58DCC002D94F4 /* GetPetRequest.swift in Sources */,
+				57FB4C0325DE04C80078CAAC /* GetDiseaseDetailRequest.swift in Sources */,
 				5788239B25D27C6B005CBCC9 /* PetInfoViewController.swift in Sources */,
+				577E42B6261976F800EA6928 /* BreedCharacterView.swift in Sources */,
 				579ABB7025D517000094D7EE /* PetFinishViewController.swift in Sources */,
+				5756C989260090DE0029170A /* QuestionView.swift in Sources */,
 				5788239525D269C8005CBCC9 /* AgreeView.swift in Sources */,
 				5788E2B525D3B3FB008F9EA9 /* FoodCategory1.swift in Sources */,
+				57FB4C0625DE0FD20078CAAC /* GetSymptomDetailRequest.swift in Sources */,
 				57D00DD525D68080008F60FB /* ProductViewController.swift in Sources */,
 				578823BF25D2BAA5005CBCC9 /* InoculationCVCell.swift in Sources */,
 				57D00DD025D669CA008F60FB /* ProductView.swift in Sources */,
@@ -628,7 +745,11 @@
 				5788234825D226BC005CBCC9 /* Static.swift in Sources */,
 				5788E2A325D39CA4008F9EA9 /* GetDiseasesRequest.swift in Sources */,
 				579ABB7925D51E400094D7EE /* MyPetViewController.swift in Sources */,
+				5756C98C260091800029170A /* GetQuestionsRequest.swift in Sources */,
+				5756C9A42600BB450029170A /* RemoveReviewRequest.swift in Sources */,
+				572FEBDD25DD1F7800BC4D66 /* DiseaseView.swift in Sources */,
 				5788E29A25D39442008F9EA9 /* SelectDiseaseViewController.swift in Sources */,
+				5756C98F2600919D0029170A /* Question.swift in Sources */,
 				5788E2A625D39CB2008F9EA9 /* Disease.swift in Sources */,
 				57BCA13A25DB92FB00993C91 /* LeaveViewController.swift in Sources */,
 				57C6063D25D7B508000368F5 /* Food.swift in Sources */,
@@ -636,6 +757,8 @@
 				5788E2B225D3B3EF008F9EA9 /* FoodCategory2.swift in Sources */,
 				57D00DCD25D65D56008F60FB /* ProductFilter.swift in Sources */,
 				5788E2B825D3B535008F9EA9 /* GetFoodCategoriesRequest.swift in Sources */,
+				5781715825F4DC2F00A67C2B /* GetPetFoodCategories2Request.swift in Sources */,
+				572FEBE625DD2B8800BC4D66 /* FoodViewController.swift in Sources */,
 				5788E29D25D3954F008F9EA9 /* SelectAllergyViewController.swift in Sources */,
 				578823A425D28BFF005CBCC9 /* PetInputView.swift in Sources */,
 				579ABB7D25D528CA0094D7EE /* SearchViewController.swift in Sources */,
@@ -643,6 +766,11 @@
 				579ABB7625D51E340094D7EE /* ProductListViewController.swift in Sources */,
 				578823D325D2E6BB005CBCC9 /* GetInoculationsRequest.swift in Sources */,
 				5754501425D6E0560096D669 /* ProductReviewViewController.swift in Sources */,
+				5756C99B26009E360029170A /* GetUserReviewsRequest.swift in Sources */,
+				577E42B3261975DF00EA6928 /* GetBreedCharactersRequest.swift in Sources */,
+				5781715525F4DB0A00A67C2B /* GetPetDiseasesRequest.swift in Sources */,
+				5756C9922600969C0029170A /* QuestionDetailViewController.swift in Sources */,
+				572FEBDA25DD17C100BC4D66 /* SymptomViewController.swift in Sources */,
 				5788238F25D2635D005CBCC9 /* LineView.swift in Sources */,
 				57BCA13725DB925C00993C91 /* QuestionViewController.swift in Sources */,
 				578823DC25D2F17B005CBCC9 /* Bcs.swift in Sources */,
@@ -783,9 +911,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PetProject/PetProject.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 112;
 				DEVELOPMENT_TEAM = 539VY639PR;
 				INFOPLIST_FILE = PetProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -793,12 +921,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stellation.PetProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = PetProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -809,9 +937,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = PetProject/PetProject.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 11;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 112;
 				DEVELOPMENT_TEAM = 539VY639PR;
 				INFOPLIST_FILE = PetProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -819,12 +947,12 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stellation.PetProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = PetProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

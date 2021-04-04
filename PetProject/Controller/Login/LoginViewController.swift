@@ -24,12 +24,12 @@ class LoginViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Title"
-        label.font = .boldSystemFont(ofSize: 32)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    lazy var titleImageView: UIImageView = {
+        let image = UIImage(named: "logo_text.png")
+        let iv = UIImageView(image: image)
+        iv.contentMode = .scaleAspectFit
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        return iv
     }()
     
     // MARK: View - Buttons
@@ -94,9 +94,10 @@ class LoginViewController: UIViewController {
         titleContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         titleContainerView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5).isActive = true
         
-        titleContainerView.addSubview(titleLabel)
-        titleLabel.centerXAnchor.constraint(equalTo: titleContainerView.centerXAnchor).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: titleContainerView.centerYAnchor).isActive = true
+        titleContainerView.addSubview(titleImageView)
+        titleImageView.centerXAnchor.constraint(equalTo: titleContainerView.centerXAnchor).isActive = true
+        titleImageView.centerYAnchor.constraint(equalTo: titleContainerView.centerYAnchor).isActive = true
+        titleImageView.widthAnchor.constraint(equalTo: titleContainerView.widthAnchor, multiplier: CONTENTS_RATIO_XXXXXXXS).isActive = true
         
         // MARK: ConfigureView - Buttons
         view.addSubview(buttonContainerView)

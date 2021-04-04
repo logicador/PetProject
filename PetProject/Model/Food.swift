@@ -13,6 +13,9 @@ struct Food: Codable {
     var fc1Id: Int
     var fc2Id: Int
     var name: String
+    var descShort: String? = ""
     var desc: String? = ""
+    var thumbnail: String? = ""
+    var edible: String
     var nutrientList: [Nutrient] = []
 }

@@ -12,10 +12,10 @@ import WebKit
 class TermsWebViewController: UIViewController {
     
     // MARK: Property
-    var path: String? {
+    var terms: String? {
         didSet {
-            guard let path = self.path else { return }
-            if let url = URL(string: PROJECT_URL + path) {
+            guard let terms = self.terms else { return }
+            if let url = URL(string: "http://meongspoon.com/mobile/terms/" + terms) {
                 let request = URLRequest(url: url)
                 webView.load(request)
             }

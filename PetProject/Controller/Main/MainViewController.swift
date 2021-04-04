@@ -14,7 +14,6 @@ class MainViewController: UITabBarController {
     let homeVC = HomeViewController()
     let productListVC = ProductListViewController()
     let myPetVC = MyPetViewController()
-    let searchVC = SearchViewController()
     let settingVC = SettingViewController()
     
     
@@ -24,7 +23,7 @@ class MainViewController: UITabBarController {
         
         view.backgroundColor = .white
         
-        title = "앱이름없음"
+        title = "멍스푼"
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
@@ -65,6 +64,12 @@ class MainViewController: UITabBarController {
         selectedIndex = 1
     }
     
+    func openSearchVC(tab: String = "FOOD") {
+        let searchVC = SearchViewController()
+        searchVC.selectedTab = tab
+        navigationController?.pushViewController(searchVC, animated: true)
+    }
+    
     // MARK: Function - @OBJC
 //    @objc func bellTapped() {
 //
@@ -75,8 +80,7 @@ class MainViewController: UITabBarController {
     }
     
     @objc func searchTapped() {
-        present(UINavigationController(rootViewController: searchVC), animated: true, completion: nil)
-//        navigationController?.pushViewController(searchVC, animated: true)
+        openSearchVC()
     }
 }
 
@@ -85,7 +89,7 @@ class MainViewController: UITabBarController {
 extension MainViewController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController is HomeViewController {
-            title = "앱이름없음"
+            title = "멍스푼"
         }
         if viewController is ProductListViewController {
             title = "제품후기"

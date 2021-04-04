@@ -20,10 +20,10 @@ class ReviewView: UIView {
             infoLabel.text = "\(review.bName) / \(review.peBirth.monthAge())개월 / \((review.peGender == "M") ? "남아" : "여아")"
             dateLabel.text = String(review.createdDate.split(separator: " ")[0])
             
-            totalScoreLabel.text = " \(round(review.avgScore * 10) / 10)"
-            palaScoreLabel.text = " \(floor(review.palaScore))"
-            beneScoreLabel.text = " \(floor(review.beneScore))"
-            costScoreLabel.text = " \(floor(review.costScore))"
+            totalScoreLabel.text = " \(String(format: "%.1f", review.avgScore))"
+            palaScoreLabel.text = " \(Int(review.palaScore))"
+            beneScoreLabel.text = " \(Int(review.beneScore))"
+            costScoreLabel.text = " \(Int(review.costScore))"
             
             sideLabel.text = (review.side == "Y") ? " 1" : " 0"
             sideLabel.textColor = (review.side == "Y") ? .systemRed : .mainColor

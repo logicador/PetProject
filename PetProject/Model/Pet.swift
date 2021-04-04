@@ -15,6 +15,7 @@ struct Pet: Codable {
     var name: String
     var thumbnail: String? = ""
     var birth: Int
+    var bcsStep: Int
     var bcs: Int
     var gender: String
     var neuter: String

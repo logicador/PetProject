@@ -20,11 +20,13 @@ class SelectAllergyViewController: UIViewController {
     let getFoodCategoriesRequest = GetFoodCategoriesRequest()
     var foodCategory1List: [FoodCategory1] = []
     var selectedAllergyList: [FoodCategory2] = []
+    var isEditMode: Bool = false
     
     
     // MARK: View
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
+        sv.alwaysBounceVertical = true
         sv.delegate = self
         sv.translatesAutoresizingMaskIntoConstraints = false
         return sv
@@ -85,14 +87,25 @@ extension SelectAllergyViewController: GetFoodCategoriesRequestProtocol {
             
             for (i, foodCategory1) in foodCategory1List.enumerated() {
                 var indexItemList: [IndexItem] = []
+                var selectedIndexItemList: [IndexItem] = []
                 for (j, foodCategory2) in foodCategory1.foodCategory2List.enumerated() {
                     let indexItem = IndexItem(index: j, name: foodCategory2.name)
                     indexItemList.append(indexItem)
+                    
+                    if isEditMode {
+                        for selectedAllergy in selectedAllergyList {
+                            if foodCategory2.id == selectedAllergy.id {
+                                selectedIndexItemList.append(indexItem)
+                                break
+                            }
+                        }
+                    }
                 }
                 
                 let ov = OpenView(index: i)
                 ov.delegate = self
                 ov.indexItemList = indexItemList
+                ov.selectedIndexItemList = selectedIndexItemList
                 ov.label.text = "\(foodCategory1.name)(\(foodCategory1.foodCategory2List.count))"
                 stackView.addArrangedSubview(ov)
                 ov.centerXAnchor.constraint(equalTo: stackView.centerXAnchor).isActive = true

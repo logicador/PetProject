@@ -29,7 +29,7 @@ class App {
         userDefaults.set(user.nickName, forKey: "uNickName")
         userDefaults.set(user.email, forKey: "uEmail")
         userDefaults.set(user.password, forKey: "uPassword")
-        userDefaults.set(user.peId, forKey: "uPeId")
+        userDefaults.set(user.peId, forKey: "peId")
         userDefaults.set(user.level, forKey: "uLevel")
         userDefaults.set(user.lastLoginedPlatform, forKey: "uLastLoginedPlatform")
         userDefaults.set(user.isLogined, forKey: "uIsLogined")
@@ -48,13 +48,16 @@ class App {
         return userDefaults.integer(forKey: "uId")
     }
     
+//    func setUserPetId(peId: Int) {
+//        userDefaults.set(peId, forKey: "uPeId")
+//    }
     func getUserPetId() -> Int {
         return userDefaults.integer(forKey: "uPeId")
     }
     
     func getPet() -> Pet {
         let breed = Breed(id: userDefaults.integer(forKey: "peBId"), name: userDefaults.string(forKey: "peBName") ?? "", type: userDefaults.string(forKey: "peBType") ?? "")
-        return Pet(id: userDefaults.integer(forKey: "peId"), uId: userDefaults.integer(forKey: "peUId"), bId: userDefaults.integer(forKey: "peBId"), name: userDefaults.string(forKey: "peName") ?? "", thumbnail: userDefaults.string(forKey: "peThumbnail") ?? "", birth: userDefaults.integer(forKey: "peBirth"), bcs: userDefaults.integer(forKey: "peBcs"), gender: userDefaults.string(forKey: "peGender") ?? "", neuter: userDefaults.string(forKey: "peNeuter") ?? "", inoculation: userDefaults.string(forKey: "peInoculation") ?? "", inoculationText: userDefaults.string(forKey: "peInoculationText") ?? "", serial: userDefaults.string(forKey: "peSerial") ?? "", serialNo: userDefaults.string(forKey: "peSerialNo") ?? "", weight: userDefaults.double(forKey: "peWeight"), createdDate: userDefaults.string(forKey: "peCreatedDate") ?? "", updatedDate: userDefaults.string(forKey: "peUpdatedDate") ?? "", breed: breed, monthAge: userDefaults.integer(forKey: "peMonthAge"))
+        return Pet(id: userDefaults.integer(forKey: "peId"), uId: userDefaults.integer(forKey: "peUId"), bId: userDefaults.integer(forKey: "peBId"), name: userDefaults.string(forKey: "peName") ?? "", thumbnail: userDefaults.string(forKey: "peThumbnail") ?? "", birth: userDefaults.integer(forKey: "peBirth"), bcsStep: userDefaults.integer(forKey: "peBcsStep"), bcs: userDefaults.integer(forKey: "peBcs"), gender: userDefaults.string(forKey: "peGender") ?? "", neuter: userDefaults.string(forKey: "peNeuter") ?? "", inoculation: userDefaults.string(forKey: "peInoculation") ?? "", inoculationText: userDefaults.string(forKey: "peInoculationText") ?? "", serial: userDefaults.string(forKey: "peSerial") ?? "", serialNo: userDefaults.string(forKey: "peSerialNo") ?? "", weight: userDefaults.double(forKey: "peWeight"), createdDate: userDefaults.string(forKey: "peCreatedDate") ?? "", updatedDate: userDefaults.string(forKey: "peUpdatedDate") ?? "", breed: breed, monthAge: userDefaults.integer(forKey: "peMonthAge"))
     }
     
     func setPet(pet: Pet) {
@@ -64,6 +67,7 @@ class App {
         userDefaults.set(pet.name, forKey: "peName")
         userDefaults.set(pet.thumbnail, forKey: "peThumbnail")
         userDefaults.set(pet.birth, forKey: "peBirth")
+        userDefaults.set(pet.bcsStep, forKey: "peBcsStep")
         userDefaults.set(pet.bcs, forKey: "peBcs")
         userDefaults.set(pet.gender, forKey: "peGender")
         userDefaults.set(pet.neuter, forKey: "peNeuter")
@@ -81,6 +85,13 @@ class App {
     
     func getPetName() -> String {
         return userDefaults.string(forKey: "peName") ?? ""
+    }
+    
+//    func setPetId(peId: Int) {
+//        userDefaults.set(peId, forKey: "peId")
+//    }
+    func getPetId() -> Int {
+        return userDefaults.integer(forKey: "peId")
     }
     
     func setPetThumbnail(thumbnail: String) {

@@ -149,6 +149,15 @@ class MyPetViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    lazy var characterButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("보기", for: .normal)
+        button.tintColor = .systemGray
+        button.titleLabel?.font = .systemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(characterTapped), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     lazy var characterTitleBottomLine: LineView = {
         let lv = LineView()
         return lv
@@ -166,108 +175,126 @@ class MyPetViewController: UIViewController {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "적응력"
         bcv.descLabel.text = "변화에 대처하는 능력"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var affBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "애정도"
         bcv.descLabel.text = "표현하는 따뜻함과 친근함의 정도"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var apaBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "아파트 친화성"
         bcv.descLabel.text = "크기 및 소음 경향성등 아파트 거주에 영향을 미치는 요인"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var barBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "짖는 경향"
         bcv.descLabel.text = "발성 크기 수준"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var catBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "고양이 친화성"
         bcv.descLabel.text = "고양이에 대한 인내심 및 먹잇감으로서의 낮은 인식 경향"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var kidBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "어린이 친화성"
         bcv.descLabel.text = "아이들에 대한 인내심 및 아이들과 잘 어울리는 경향"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var dogBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "강아지 친화성"
         bcv.descLabel.text = "변화에 대처하는 능력"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var exeBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "운동 욕구"
         bcv.descLabel.text = "다른 강아지에 대한 인내심 및 어울리는 경향"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var triBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "손질"
         bcv.descLabel.text = "목욕, 빗질, 전문적 털관리 등의 필요성"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var heaBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "건강 문제"
         bcv.descLabel.text = "해당 견종이 가지기 쉬운 건강 문제의 수준"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var intBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "지능"
         bcv.descLabel.text = "사고력, 문제해결능력 (훈련능력과 무관)"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var jokBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "장난끼"
         bcv.descLabel.text = "명랑하고 활발한 정도"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var haiBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "털빠짐"
         bcv.descLabel.text = "털 빠짐의 양과 빈도"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var socBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "사회적 욕구"
         bcv.descLabel.text = "다른 애완동물이나 사람과 교류하는 것을 선호하는 정도"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var strBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "낯선 사람 친화성"
         bcv.descLabel.text = "새로운 사람을 반기는 경 향"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var domBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "영역성"
         bcv.descLabel.text = "집, 마당, 또는 자동차를 보호하려는 성향"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var traBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "훈련가능성"
         bcv.descLabel.text = "새로운 것을 배우고 시도 해보려는 수준"
+        bcv.isHidden = true
         return bcv
     }()
     lazy var proBCV: BreedCharacterView = {
         let bcv = BreedCharacterView()
         bcv.nameLabel.text = "집 지키는 능력"
         bcv.descLabel.text = "낯선사람에 대해 주인에게 경고할 가능성이 높은 견종"
+        bcv.isHidden = true
         return bcv
     }()
     
@@ -498,6 +525,10 @@ class MyPetViewController: UIViewController {
         characterTitleLabel.topAnchor.constraint(equalTo: characterContainerView.topAnchor).isActive = true
         characterTitleLabel.leadingAnchor.constraint(equalTo: characterContainerView.leadingAnchor).isActive = true
         
+        characterContainerView.addSubview(characterButton)
+        characterButton.centerYAnchor.constraint(equalTo: characterTitleLabel.centerYAnchor).isActive = true
+        characterButton.trailingAnchor.constraint(equalTo: characterContainerView.trailingAnchor).isActive = true
+        
         characterContainerView.addSubview(characterTitleBottomLine)
         characterTitleBottomLine.topAnchor.constraint(equalTo: characterTitleLabel.bottomAnchor, constant: SPACE_XS).isActive = true
         characterTitleBottomLine.leadingAnchor.constraint(equalTo: characterContainerView.leadingAnchor).isActive = true
@@ -659,6 +690,28 @@ class MyPetViewController: UIViewController {
     
     @objc func weakHelpTapped() {
         weakHelpContainerView.isHidden = !weakHelpContainerView.isHidden
+    }
+    
+    @objc func characterTapped() {
+        characterButton.setTitle((adaBCV.isHidden) ? "접기" : "보기", for: .normal)
+        adaBCV.isHidden = !adaBCV.isHidden
+        affBCV.isHidden = !affBCV.isHidden
+        apaBCV.isHidden = !apaBCV.isHidden
+        barBCV.isHidden = !barBCV.isHidden
+        catBCV.isHidden = !catBCV.isHidden
+        kidBCV.isHidden = !kidBCV.isHidden
+        dogBCV.isHidden = !dogBCV.isHidden
+        exeBCV.isHidden = !exeBCV.isHidden
+        triBCV.isHidden = !triBCV.isHidden
+        heaBCV.isHidden = !heaBCV.isHidden
+        intBCV.isHidden = !intBCV.isHidden
+        jokBCV.isHidden = !jokBCV.isHidden
+        haiBCV.isHidden = !haiBCV.isHidden
+        socBCV.isHidden = !socBCV.isHidden
+        strBCV.isHidden = !strBCV.isHidden
+        domBCV.isHidden = !domBCV.isHidden
+        traBCV.isHidden = !traBCV.isHidden
+        proBCV.isHidden = !proBCV.isHidden
     }
 }
 
